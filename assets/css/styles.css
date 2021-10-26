@@ -1,16 +1,24 @@
 :root {
     --main-text: #ffffff;
     --border: #000000;
-    --clr-nav-background: #a70000;
+    --bitter-lemon: #c2e812ff;
+    --light-gray: #cedadaff;
+    --marigold: #ec9f05ff;
+    --eerie-black: #191919ff;
+    --charcoal: #2f4858ff;
 }
 
 
 /* Navigation Bar Styles */
 
+body {
+    background-color: var(--light-gray);
+}
+
 .nav-list {
     padding: 21px;
     color: var(--main-text);
-    background: var(--clr-nav-background);
+    background: var(--marigold);
     display: flex;
     flex-wrap: wrap;
     width: 100%;
@@ -35,6 +43,11 @@
     padding: 0 2rem 0 0
 }
 
+.last-nav-item {
+    display: inline;
+    padding: 0 0 0 0;
+}
+
 .nav-item a,
 .last-nav-item a {
     text-decoration: none;
@@ -42,7 +55,8 @@
     letter-spacing: 3px;
 }
 
-.last-nav-item {
-    display: inline;
-    padding: 0 0 0 0;
+.nav-item a:hover,
+.last-nav-item a:hover {
+    color: var(--eerie-black);
+    transition: all 200ms ease-in;
 }
