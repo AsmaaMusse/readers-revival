@@ -33,7 +33,13 @@ body {
     text-decoration: none;
     align-items: center;
     color: var(--clr-background);
+    font-size: 40px;
     letter-spacing: 4px;
+}
+
+.logo a:hover {
+    color: var(--eerie-black);
+    transition: all 200ms ease-in;
 }
 
 .nav-item {
