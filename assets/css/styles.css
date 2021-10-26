@@ -67,3 +67,49 @@ body {
   color: var(--eerie-black);
   transition: all 200ms ease-in;
 }
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20vh;
+  font-size: 20px;
+}
+
+.search-title {
+  margin-bottom: 20px;
+}
+
+.form-element {
+  margin-bottom: 20px;
+}
+
+.form-element input {
+  margin: 0 auto;
+  min-width: 575px;
+  border-radius: 10px;
+  border: 1px solid #dcdcdc;
+  height: 50px;
+  outline: none;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.form-element input:hover {
+  box-shadow: 1px 1px 8px 1px var(--eerie-black);
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+.button {
+  background-color: var(--eerie-black);
+  color: var(--marigold);
+}
+.button:hover {
+  background-color: var(--marigold);
+  color: var(--eerie-black);
+}
