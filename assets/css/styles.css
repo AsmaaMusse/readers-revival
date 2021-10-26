@@ -1,68 +1,69 @@
-:root {
-    --main-text: #ffffff;
-    --border: #000000;
-    --bitter-lemon: #c2e812ff;
-    --light-gray: #cedadaff;
-    --marigold: #ec9f05ff;
-    --eerie-black: #191919ff;
-    --charcoal: #2f4858ff;
-}
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap");
 
+:root {
+  --main-text: #ffffff;
+  --border: #000000;
+  --bitter-lemon: #c2e812ff;
+  --light-gray: #cedadaff;
+  --marigold: #ec9f05ff;
+  --eerie-black: #191919ff;
+  --charcoal: #2f4858ff;
+}
 
 /* Navigation Bar Styles */
 
 body {
-    background-color: var(--light-gray);
+  background-color: var(--light-gray);
 }
 
 .nav-list {
-    padding: 21px;
-    color: var(--main-text);
-    background: var(--marigold);
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    align-items: center;
+  padding: 21px;
+  color: var(--main-text);
+  background: var(--marigold);
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
 }
 
 .logo {
-    margin-right: auto;
+  margin-right: auto;
 }
 
 .logo a {
-    text-decoration: none;
-    align-items: center;
-    color: var(--clr-background);
-    font-size: 40px;
-    letter-spacing: 4px;
+  text-decoration: none;
+  align-items: center;
+  color: var(--clr-background);
+  font-size: 40px;
+  letter-spacing: 4px;
 }
 
 .logo a:hover {
-    color: var(--eerie-black);
-    transition: all 200ms ease-in;
+  color: var(--eerie-black);
+  transition: all 200ms ease-in;
 }
 
 .nav-item {
-    width: 100%;
-    text-align: center;
-    display: inline;
-    padding: 0 2rem 0 0
+  width: 100%;
+  text-align: center;
+  display: inline;
+  padding: 0 2rem 0 0;
 }
 
 .last-nav-item {
-    display: inline;
-    padding: 0 0 0 0;
+  display: inline;
+  padding: 0 0 0 0;
 }
 
 .nav-item a,
 .last-nav-item a {
-    text-decoration: none;
-    color: var(--main-text);
-    letter-spacing: 3px;
+  text-decoration: none;
+  color: var(--main-text);
+  letter-spacing: 3px;
 }
 
 .nav-item a:hover,
 .last-nav-item a:hover {
-    color: var(--eerie-black);
-    transition: all 200ms ease-in;
+  color: var(--eerie-black);
+  transition: all 200ms ease-in;
 }
