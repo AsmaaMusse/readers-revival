@@ -14,6 +14,7 @@
 
 body {
   background-color: var(--light-gray);
+  font-family: "Rubik", sans-serif;
 }
 
 .nav-list {
@@ -67,7 +68,9 @@ body {
   color: var(--eerie-black);
   transition: all 200ms ease-in;
 }
-
+.title {
+  color: var(--eerie-black);
+}
 .search-container {
   display: flex;
   flex-direction: column;
@@ -112,6 +115,19 @@ body {
 .button:hover {
   background-color: var(--marigold);
   color: var(--eerie-black);
+}
+
+.book-card {
+  max-width: 400px;
+}
+
+.save-btn {
+  margin-left: 10px;
+}
+
+.book-img,
+.book-img img {
+  height: 300px;
 }
 
 .footer {
