@@ -35,6 +35,10 @@ code {
     font-family: inherit;
 }
 
+button {
+    border: 0px;
+}
+
 ol,
 ul {
     list-style: none;

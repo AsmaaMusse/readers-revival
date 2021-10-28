@@ -1,111 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css" />
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <title>Reading Planner</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <!--Nav bar-->
     <header>
-      <nav>
-        <ul class="nav-list">
-          <li class="logo">
-            <a href="website-logo"><i class="fas fa-book-open"></i></a>
-          </li>
+        <nav>
+            <ul class="nav-list">
+                <li class="logo">
+                    <a href="website-logo"><i class="fas fa-book-open"></i></a>
+                </li>
 
-          <ul>
-            <li class="nav-item"><a href="#my-planner">My Planner</a></li>
-            <li class="last-nav-item"><a href="#About-team">About Team</a></li>
-          </ul>
-        </ul>
-      </nav>
+                <ul>
+                    <li class="nav-item"><a href="#my-planner">My Planner</a></li>
+                    <li class="last-nav-item"><a href="#About-team">About Team</a></li>
+                </ul>
+            </ul>
+        </nav>
     </header>
 
     <main>
-      <div class="columns is-mobile is-centered">
-        <div class="column is-half">
-          <h1 class="title is-1">Readers Revival</h1>
-        </div>
-      </div>
-      <section class="search-container">
-        <h2 class="search-title">Enter book title here:</h2>
-        <!--Enter search bar design here-->
+        <section class="wrapper">
+            <aside class="aside-container">
+                <!--Enter search bar design here-->
+                <form class="form-container">
+                    <h2>Search book title here:</h2>
+                    <input type="text" placeholder="Enter book title" />
+                    <button class="submit-button" id="btn-search" type="submit">Search</button>
+                </form>
+                <div class="border"></div>
+                <button class="button" id="btn-generate" type="submit">Generate random book</button>
+                <div class="border"></div>
+                <section class="aside-buttons">
+                    <button class="button">ls book</button>
+                    <button class="button">ls book</button>
+                    <button class="button">ls book</button>
+                    <button class="button">ls book</button>
+                    <button class="button">ls book</button>
+                </section>
+            </aside>
+            <section class="main-content">
+                <div class="demo-container current-book-container">
+                    <div class="columns is-mobile is-centered">
+                        <div class="column is-half">
+                            <h1 class="title is-1">Readers Revival</h1>
+                        </div>
+                    </div>
+                    <h1>Image</h1>
+                    <h1>Description</h1>
+                </div>
+                <div class="demo-container book-cards-container">
+                    <section>
+                        <div class="card book-card">
+                            <div class="card-image book-img">
+                                <figure class="image">
+                                    <img src="http://books.google.com/books/content?id=eq9XvgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api" alt="Placeholder image" />
+                                </figure>
+                            </div>
+                            <div class="card-content">
+                                <div class="media-content">
+                                    <p class="title is-4">
+                                        Fantastic Beasts and Where to Find Them: Cinematic Guide: Newt Scamander Do Not Feed Out
+                                    </p>
+                                    <p class="subtitle is-6">Felicity Baker</p>
+                                    <time datetime="2016-1-1">2017-02-02</time>
+                                </div>
+                            </div>
 
-        <form>
-          <div class="form-element">
-            <input type="text" placeholder="Enter book title" />
-          </div>
+                            <div class="content px-5">
+                                The essential film companion for Newt Scamander! Relive the magic of Newt's world with this hardback guidebook featuring your favourite scenes and quotes from Fantastic Beasts and Where to Find Them.
+                            </div>
 
-          <div class="form-buttons">
-            <button class="button" id="btn-search" type="submit">Search</button>
-            <button class="button" id="btn-generate" type="submit">
-              Generate random book
-            </button>
-          </div>
-        </form>
-      </section>
-
-      <section>
-        <div class="card book-card">
-          <div class="card-image book-img">
-            <figure class="image">
-              <img
-                src="http://books.google.com/books/content?id=eq9XvgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
-                alt="Placeholder image"
-              />
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media-content">
-              <p class="title is-4">
-                Fantastic Beasts and Where to Find Them: Cinematic Guide: Newt
-                Scamander Do Not Feed Out
-              </p>
-              <p class="subtitle is-6">Felicity Baker</p>
-              <time datetime="2016-1-1">2017-02-02</time>
-            </div>
-          </div>
-
-          <div class="content px-5">
-            The essential film companion for Newt Scamander! Relive the magic of
-            Newt's world with this hardback guidebook featuring your favourite
-            scenes and quotes from Fantastic Beasts and Where to Find Them.
-          </div>
-
-          <footer class="card-footer">
-            <button class="card-footer-item button is-info">
-              <i class="fas fa-plus"></i>
-              <p class="save-btn">Save to Planner</p>
-            </button>
-          </footer>
-        </div>
-      </section>
+                            <footer class="card-footer">
+                                <button class="card-footer-item button is-info">
+                                  <i class="fas fa-plus"></i>
+                                  <p class="save-btn">Save to Planner</p>
+                                </button>
+                            </footer>
+                        </div>
+                    </section>
+                </div>
+            </section>
+        </section>
     </main>
 
     <footer class="footer">
-      <div class="content has-text-centered">
-        <p>
-          Made with love 2021©
-        </p>
-      </div>
+        <div class="content has-text-centered">
+            <p>
+                Made with love 2021©
+            </p>
+        </div>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/javascript/index.js"></script>
-    
-  </body>
+</body>
+
 </html>
