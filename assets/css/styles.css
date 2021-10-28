@@ -129,3 +129,8 @@ body {
 .book-img img {
   height: 300px;
 }
+
+.footer {
+  margin-top: 250px;
+  padding: 3rem;
+}
