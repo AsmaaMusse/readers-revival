@@ -19,7 +19,7 @@
       <div class="navbar-brand">
         <div class="logo">
 
-          <a href="website-logo" class="navbar-item" width="112" height="28"><i class="fas fa-book-open"></i></a>
+          <a href="website-logo" class="navbar-item" width="112" height="28"><i class="fas fa-book-open"></i><span class="logo-title">Readers Revival</span></a>
         </div>
 
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -44,12 +44,16 @@
         <aside class="aside-container">
           <!--Enter search bar design here-->
           <form class="form-container">
-            <h2>Search book title here:</h2>
+            <h2>Search a book</h2>
             <input type="text" placeholder="Enter book title" />
-            <button class="submit-button" id="btn-search" type="submit">Search</button>
+            <button class="submit-button" id="btn-search" type="submit">
+              Search
+            </button>
           </form>
           <div class="border"></div>
-          <button class="button" id="btn-generate" type="submit">Generate random book</button>
+          <button class="button" id="btn-generate" type="submit">
+            Generate random book
+          </button>
           <div class="border"></div>
           <section class="aside-buttons">
             <button class="button">ls book</button>
@@ -59,49 +63,89 @@
             <button class="button">ls book</button>
           </section>
         </aside>
+
+        <!-- Main content -->
         <section class="main-content">
-          <div class="demo-container current-book-container">
-            <div class="columns is-mobile is-centered">
-              <div class="column is-half">
-                <h1 class="title is-1">Readers Revival</h1>
-              </div>
+          <!-- Books container -->
+          <div class="books-container">
+            <!--  -->
+            <div class="columns">
+                <div class="column">
+                    <!-- Book 1 -->
+                    <div class="book-card">
+                        <!-- Link to the actual book on Google boks (on the image) -->
+                        <a href="./">
+                            <img class="book-image" src="./assets/images/demo/harry-potter.jpg"></img>
+                        </a>
+                        <!-- Book info -->
+                        <div class="book-info">
+                            <h3 class="book-title">Harry Potter and the Cursed Child</h3>
+                            <h4 class="book-author">Jack Thorne, J. K. Rowling, John Tiffany</h4>
+                            <!-- Add book to planner button -->
+                            <button class="button is-rounded">Add to Planner</button>
+                        </div>
+                    </div>
+                    
+                </div>
+                <!--  -->
+                <div class="column">
+                    <!-- Book 1 -->
+                    <div class="book-card">
+                        <!-- Link to the actual book on Google boks (on the image) -->
+                        <a href="./">
+                            <img class="book-image" src="./assets/images/demo/harry-potter.jpg"></img>
+                        </a>
+                        <!-- Book info -->
+                        <div class="book-info">
+                            <h3 class="book-title">Harry Potter and the Cursed Child</h3>
+                            <h4 class="book-author">Jack Thorne, J. K. Rowling, John Tiffany</h4>
+                            <!-- Add book to planner button -->
+                            <button class="button is-rounded">Add to Planner</button>
+                        </div>
+                    </div>
+                    
+                </div>
+
             </div>
-            <h1>Image</h1>
-            <h1>Description</h1>
-          </div>
-          <div class="demo-container book-cards-container">
-            <section>
-              <div class="card book-card">
-                <div class="card-image book-img">
-                  <figure class="image">
-                    <img
-                      src="http://books.google.com/books/content?id=eq9XvgAACAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api"
-                      alt="Placeholder image" />
-                  </figure>
+
+            <div class="columns">
+                <div class="column">
+                    <!-- Book 1 -->
+                    <div class="book-card">
+                        <!-- Link to the actual book on Google boks (on the image) -->
+                        <a href="./">
+                            <img class="book-image" src="./assets/images/demo/harry-potter.jpg"></img>
+                        </a>
+                        <!-- Book info -->
+                        <div class="book-info">
+                            <h3 class="book-title">Harry Potter and the Cursed Child</h3>
+                            <h4 class="book-author">Jack Thorne, J. K. Rowling, John Tiffany</h4>
+                            <!-- Add book to planner button -->
+                            <button class="button is-rounded">Add to Planner</button>
+                        </div>
+                    </div>
+                    
                 </div>
-                <div class="card-content">
-                  <div class="media-content">
-                    <p class="title is-4">
-                      Fantastic Beasts and Where to Find Them: Cinematic Guide: Newt Scamander Do Not Feed Out
-                    </p>
-                    <p class="subtitle is-6">Felicity Baker</p>
-                    <time datetime="2016-1-1">2017-02-02</time>
-                  </div>
+                <!--  -->
+                <div class="column">
+                    <!-- Book 1 -->
+                    <div class="book-card">
+                        <!-- Link to the actual book on Google boks (on the image) -->
+                        <a href="./">
+                            <img class="book-image" src="./assets/images/demo/harry-potter.jpg"></img>
+                        </a>
+                        <!-- Book info -->
+                        <div class="book-info">
+                            <h3 class="book-title">Harry Potter and the Cursed Child</h3>
+                            <h4 class="book-author">Jack Thorne, J. K. Rowling, John Tiffany</h4>
+                            <!-- Add book to planner button -->
+                            <button class="button is-rounded">Add to Planner</button>
+                        </div>
+                    </div>
+                    
                 </div>
 
-                <div class="content px-5">
-                  The essential film companion for Newt Scamander! Relive the magic of Newt's world with this hardback
-                  guidebook featuring your favourite scenes and quotes from Fantastic Beasts and Where to Find Them.
-                </div>
-
-                <footer class="card-footer">
-                  <button class="card-footer-item button is-info">
-                    <i class="fas fa-plus"></i>
-                    <p class="save-btn">Save to Planner</p>
-                  </button>
-                </footer>
-              </div>
-            </section>
+            </div>
           </div>
         </section>
       </section>
@@ -109,9 +153,7 @@
 
     <footer class="footer">
       <div class="content has-text-centered">
-        <p>
-          Made with love 2021©
-        </p>
+        <p>Made with love 2021©</p>
       </div>
     </footer>
 
@@ -119,5 +161,4 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/javascript/index.js"></script>
   </body>
-
 </html>
