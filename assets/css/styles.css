@@ -113,3 +113,8 @@ body {
   background-color: var(--marigold);
   color: var(--eerie-black);
 }
+
+.footer {
+  margin-top: 250px;
+  padding: 3rem;
+}
