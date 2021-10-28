@@ -1,61 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css" />
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <title>Reading Planner</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <!--Nav bar-->
     <header>
-      <nav>
-        <ul class="nav-list">
-          <li class="logo">
-            <a href="website-logo"><i class="fas fa-book-open"></i></a>
-          </li>
+        <nav>
+            <ul class="nav-list">
+                <li class="logo">
+                    <a href="website-logo"><i class="fas fa-book-open"></i></a>
+                </li>
 
-          <ul>
-            <li class="nav-item"><a href="#my-planner">My Planner</a></li>
-            <li class="last-nav-item"><a href="#About-team">About Team</a></li>
-          </ul>
-        </ul>
-      </nav>
+                <ul>
+                    <li class="nav-item"><a href="#my-planner">My Planner</a></li>
+                    <li class="last-nav-item"><a href="#About-team">About Team</a></li>
+                </ul>
+            </ul>
+        </nav>
     </header>
 
     <main>
-      <section class="search-container">
-        <h2 class="search-title">Enter book title here:</h2>
-        <!--Enter search bar design here-->
+        <section class="wrapper">
 
-        <form>
-          <div class="form-element">
-            <input type="text" placeholder="Enter book title" />
-          </div>
-
-          <div class="form-buttons">
-            <button class="button" id="btn-search" type="submit">Search</button>
-            <button class="button" id="btn-generate" type="submit">
-              Generate random book
-            </button>
-          </div>
-        </form>
-      </section>
+            <aside class="aside-container">
+                <!--Enter search bar design here-->
+                <form class="form-container">
+                    <h2>Search book title here:</h2>
+                    <input type="text" placeholder="Enter book title" />
+                    <button class="submit-button" id="btn-search" type="submit">Search</button>
+                </form>
+                <div class="border"></div>
+                <button class="button" id="btn-generate" type="submit">Generate random book</button>
+                <div class="border"></div>
+                <section class="aside-buttons">
+                    <button class="button">ls book</button>
+                    <button class="button">ls book</button>
+                    <button class="button">ls book</button>
+                    <button class="button">ls book</button>
+                    <button class="button">ls book</button>
+                </section>
+            </aside>
+            <section class="main-content">
+                <div class="demo-container current-book-container">
+                    <h1>Title of book searched</h1>
+                    <h1>Image</h1>
+                    <h1>Description</h1>
+                </div>
+                <div class="demo-container book-cards-container">
+                    <h1>Book Card</h1>
+                    <h1>Book Card</h1>
+                    <h1>Book Card</h1>
+                    <h1>Book Card</h1>
+                    <h1>Book Card</h1>
+                </div>
+            </section>
+        </section>
     </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/javascript/index.js"></script>
-  </body>
+</body>
+
 </html>
