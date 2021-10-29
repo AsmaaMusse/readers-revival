@@ -65,3 +65,18 @@ body {
   color: var(--eerie-black);
   transition: all 200ms ease-in;
 }
+
+/* Cards container */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 400px;
+  margin: 20px;
+  padding: 20px;
+}
+
+.card-image img {
+  width: 300px;
+}
