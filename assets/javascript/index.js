@@ -13,12 +13,25 @@ const hamburgerDropDown = () => {
     $(".navbar-burger").click(toggleActive)
 };
 
+const getBookCardsData = (books) => {
+    const callback = (bookItem) => {
+        return {
+            title: bookItem.volumeInfo.title,
+            description: bookItem.volumeInfo.description,
+            img: bookItem.volumeInfo.imageLinks.smallThumbnail
+        }
+    };
+    return books.items.map(callback)
+};
+
 const getBookData = async bookName => {
     const bookUrl = `https://www.googleapis.com/books/v1/volumes?q=${bookName}`;
-    // console.log(bookUrl)
     const bookDataResponse = await fetch(bookUrl);
     const bookData = await bookDataResponse.json();
-    // console.log(bookData.items)
+
+    const bookCard = getBookCardsData(bookData)
+
+    console.log(bookCard)
 };
 
 getBookData("harry potter");
