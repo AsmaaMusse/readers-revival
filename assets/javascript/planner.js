@@ -17,6 +17,7 @@ const months = [
 const previous = $("#prev-btn");
 const next = $("#next-btn");
 const currentMonth = moment().format("MMMM");
+let displayedMonth = currentMonth;
 
 const renderCurrentMonth = function () {
   $("#month").text(currentMonth);
@@ -26,13 +27,19 @@ const renderCurrentMonth = function () {
 const displayNextMonth = function () {
   //listen for current month
   const callback = function (element) {
-    return element === currentMonth;
+    return element === displayedMonth;
   };
   //look inside months array and find the next month
   const currentMonthIndex = months.findIndex(callback);
-  //render on to page
-  const nextMonth = months[currentMonthIndex + 1];
+  let nextMonth;
 
+  //render on to page
+  if (currentMonthIndex === months.length - 1) {
+    nextMonth = months[0];
+  } else {
+    nextMonth = months[currentMonthIndex + 1];
+  }
+  displayedMonth = nextMonth;
   $("#month").text(nextMonth);
 };
 
