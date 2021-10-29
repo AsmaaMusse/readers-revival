@@ -14,21 +14,41 @@ const months = [
   "December",
 ];
 //declare const
-const previous = document.getElementById("prev-btn");
-const next = document.getElementById("next");
+const previous = $("#prev-btn");
+const next = $("#next-btn");
+const currentMonth = moment().format("MMMM");
 
-//add event listener
-previous.addEventListener("click", displayMonth);
-next.addEventListener("click", displayMonth);
+const renderCurrentMonth = function () {
+  $("#month").text(currentMonth);
+};
 
 //display month function
-const displayMonth = function (previous, next) {
-  //if prev btn is clicked
-  if (previous)
-    //change the text of h1
-    document.querySelector(".month h1").innerHTML = "January";
-  //if next btn is clicked go forward
+const displayNextMonth = function () {
+  //listen for current month
+  const callback = function (element) {
+    return element === currentMonth;
+  };
+  //look inside months array and find the next month
+  const currentMonthIndex = months.findIndex(callback);
+  //render on to page
+  const nextMonth = months[currentMonthIndex + 1];
+
+  $("#month").text(nextMonth);
 };
+
+const displayPreviousMonth = function () {
+  console.log("previous");
+};
+
+const onReady = function () {
+  renderCurrentMonth();
+};
+
+$(document).ready(onReady);
+
+//add event listener
+previous.on("click", displayPreviousMonth);
+next.on("click", displayNextMonth);
 
 //render the book cards that were added on to my planner on the box
 // sort book card data into the months it was scheduled for
