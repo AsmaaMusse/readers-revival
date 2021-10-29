@@ -68,15 +68,41 @@ body {
 
 /* Cards container */
 
+.main-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+}
+
 .card {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
   width: 400px;
-  margin: 20px;
+  margin: 30px;
   padding: 20px;
+  border: solid;
+  border-radius: 10px;
 }
 
 .card-image img {
   width: 300px;
+}
+
+.card-content {
+  border: solid;
+  padding: 10px;
+}
+
+.card-footer {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-evenly;
+  margin-top: 15px;
+}
+
+.card-footer a {
+  font-size: 50px;
 }
