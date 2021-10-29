@@ -23,14 +23,18 @@ const renderCurrentMonth = function () {
   $("#month").text(currentMonth);
 };
 
-//display month function
-const displayNextMonth = function () {
-  //listen for current month
+const getCurrentMonthIndex = function () {
   const callback = function (element) {
     return element === displayedMonth;
   };
   //look inside months array and find the next month
   const currentMonthIndex = months.findIndex(callback);
+  return currentMonthIndex;
+};
+//display month function
+const displayNextMonth = function () {
+  //listen for current month
+  const currentMonthIndex = getCurrentMonthIndex();
   let nextMonth;
 
   //render on to page
@@ -44,7 +48,16 @@ const displayNextMonth = function () {
 };
 
 const displayPreviousMonth = function () {
-  console.log("previous");
+  const currentMonthIndex = getCurrentMonthIndex();
+  let previousMonth;
+
+  if (currentMonthIndex === 0) {
+    previousMonth = months[months.length - 1];
+  } else {
+    previousMonth = months[currentMonthIndex - 1];
+  }
+  displayedMonth = previousMonth;
+  $("#month").text(previousMonth);
 };
 
 const onReady = function () {
