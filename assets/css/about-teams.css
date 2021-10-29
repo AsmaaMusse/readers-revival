@@ -14,28 +14,26 @@ body {
   font-family: "Rubik", sans-serif;
 }
 
-.navbar-menu {
-  color: var(--main-text);
-  background: var(--marigold);
+.nav-list {
   padding: 21px;
-}
-.navbar {
-  background: var(--marigold);
-}
-.logo {
-  margin-right: auto;
   color: var(--main-text);
+  background: var(--marigold);
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: center;
+  margin: -10px;
 }
 
-.logo i {
-  margin-right: 10px;
+.logo {
+  margin-right: auto;
 }
 
 .logo a {
   text-decoration: none;
   align-items: center;
   color: var(--clr-background);
-  font-size: 35px;
+  font-size: 40px;
   letter-spacing: 4px;
 }
 
@@ -44,12 +42,22 @@ body {
   transition: all 200ms ease-in;
 }
 
+.nav-item {
+  width: 100%;
+  text-align: center;
+  display: inline;
+  padding: 0 2rem 0 0;
+}
+.last-nav-item {
+  display: inline;
+  padding: 0 0 0 0;
+}
+
 .nav-item a,
 .last-nav-item a {
   text-decoration: none;
   color: var(--main-text);
   letter-spacing: 3px;
-  font-size: 25px;
 }
 
 .nav-item a:hover,
@@ -100,12 +108,6 @@ body {
 
 .card-footer a {
   font-size: 50px;
-}
-
-.footer {
-  margin-top: 250px;
-  padding: 3rem;
-  font-size: 18px;
 }
 
 @media screen and (max-width: 1024px) {

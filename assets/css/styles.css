@@ -33,7 +33,6 @@ body {
 }
 .logo {
   margin-right: auto;
-  color: var(--main-text);
 }
 
 .logo i {
@@ -213,7 +212,6 @@ body {
 .footer {
   margin-top: 250px;
   padding: 3rem;
-  font-size: 18px;
 }
 
 /* Main Content */
