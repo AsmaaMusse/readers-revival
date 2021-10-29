@@ -89,6 +89,9 @@ body {
 
 .card-image img {
   width: 300px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
 }
 
 .card-content {
