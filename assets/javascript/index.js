@@ -21,7 +21,7 @@ const getBookCardsData = (books) => {
             img: bookItem.volumeInfo.imageLinks.smallThumbnail
         }
     };
-    return books.items.map(callback)
+    return books.items.slice(0, 6).map(callback)
 };
 
 const getBookData = async bookName => {
