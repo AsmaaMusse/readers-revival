@@ -38,28 +38,45 @@
     <div class="container">
       <div class="calendar">
         <div class="month-banner">
-          <button class="prev-btn">
+          <button id="prev-btn">
             <i class="fas fa-angle-left prev"></i>
           </button>
           <div class="month">
             <h1>Month</h1>
           </div>
-          <button class="next-btn">
+          <button id="next-btn">
             <i class="fas fa-angle-right next"></i>
           </button>
-        </div>
-        <div class="weekdays">
-          <!-- INSERT SMALL BOOK CARD -->
+        </div>  
+   <!-- INSERT SMALL BOOK CARD -->
+        <div class="monthly-book-cards">
+          <section class="main-content">
+            <!-- Books container -->
+            <div class="books-container">
+              <!--  -->
+              <div class="columns">
+                  <div class="column">
+                      <!-- Book 1 -->
+                      <div class="book-card">
+                          <!-- Link to the actual book on Google boks (on the image) -->
+                          <a href="./">
+                              <img class="book-image" src="./assets/images/demo/harry-potter.jpg"></img>
+                          </a>
+                          <!-- Book info -->
+                          <div class="book-info">
+                              <h3 class="book-title">Harry Potter and the Cursed Child</h3>
+                              <h4 class="book-author">Jack Thorne, J. K. Rowling, John Tiffany</h4>
+                              <!-- Add book to planner button -->
+                              <button class="button is-rounded">Add to Planner</button>
+                          </div>
+                      </div>
+                      
+                  </div>
         </div>
       </div>
     </div>
-
-    <!--Footer-->
-    <footer class="footer">
-      <div class="content has-text-centered">
-        <p>Made with love 2021©</p>
-      </div>
-    </footer>
+   <!--Footer-->
+   
 
     <script src="./assets/javascript/planner.js"></script>
   </body>
