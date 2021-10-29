@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: #cedadaff;
+  color: #2f4858ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar {
+  width: 100%;
+  height: 80%;
+  background-color: #12121f;
+  box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
+}
+
+.month-banner {
+  width: 100%;
+  height: 14rem;
+  background-color: #ec9f05ff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  text-align: center;
+  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.month-banner i {
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: #191919ff;
+}
+
+.month-banner h1 {
+  font-size: 3rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+.month-banner p {
+  font-size: 1.6rem;
+}
