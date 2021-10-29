@@ -4,32 +4,36 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css"/>
     <link rel="stylesheet" href="./assets/css/myplanner.css" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <title>My planner</title>
   </head>
+
+
   <body>
     <!--Navbar-->
     <header>
-      <nav>
-        <ul class="nav-list">
-          <li class="logo">
-            <a href="website-logo"><i class="fas fa-book-open"></i></a>
-          </li>
-
-          <ul>
-            <li class="nav-item"><a href="./index.html">Search</a></li>
-            <li class="last-nav-item"><a href="#About-team">About Team</a></li>
-          </ul>
-        </ul>
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <div class="logo">
+            <a href="website-logo" class="navbar-item" width="112" height="28"><i class="fas fa-book-open"></i><span class="logo-title">Readers Revival</span></a>
+          </div>
+  
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        
+        <div id="navbarBasicExample" class="navbar-menu nav-list">
+          <div class="navbar-end">
+            <li class="nav-item navbar-item"><a href="./index.html">Homepage</a></li>
+            <li class="last-nav-item navbar-item"><a href="./about-teams.html">About Team</a></li>
+          </div>
+        </div>
       </nav>
     </header>
 
@@ -48,7 +52,7 @@
             <i class="fas fa-angle-right next"></i>
           </button>
         </div>  
-   <!-- INSERT SMALL BOOK CARD -->
+        <!-- INSERT SMALL BOOK CARD -->
         <div class="monthly-book-cards">
           <section class="main-content">
             <!-- Books container -->
@@ -75,10 +79,16 @@
         </div>
       </div>
     </div>
-   <!--Footer-->
+
+    <!--Footer-->
+    <footer class="footer">
+      <div class="content has-text-centered">
+       <p>Made with love ©2021</p>
+      </div>
+    </footer>
    
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/javascript/planner.js"></script>
 
   </body>

@@ -54,3 +54,9 @@ html {
 .month-banner p {
   font-size: 1.6rem;
 }
+
+.footer {
+  margin-top: 250px;
+  padding: 3rem;
+  font-size: 18px;
+}

@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"/>
     <link rel="stylesheet" href="./assets/css/about-teams.css" />
     <title>About Teams</title>
   </head>
@@ -19,19 +14,25 @@
   <body>
     <!--Nav bar-->
     <header>
-      <nav>
-        <ul class="nav-list">
-          <li class="logo">
-            <a href="website-logo"
-              ><i class="fas fa-book-open"></i>Readers Revival
-            </a>
-          </li>
-
-          <ul>
-            <li class="nav-item"><a href="#my-planner">My Planner</a></li>
-            <li class="last-nav-item"><a href="#home-page">Home page</a></li>
-          </ul>
-        </ul>
+      <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+          <div class="logo">
+            <a href="website-logo" class="navbar-item" width="112" height="28"><i class="fas fa-book-open"></i><span class="logo-title">Readers Revival</span></a>
+          </div>
+  
+          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        
+        <div id="navbarBasicExample" class="navbar-menu nav-list">
+          <div class="navbar-end">
+            <li class="nav-item navbar-item"><a href="./myplanner.html">My planner</a></li>
+            <li class="last-nav-item navbar-item"><a href="./index.html">Homepage</a></li>
+          </div>
+        </div>
       </nav>
     </header>
 
@@ -235,5 +236,12 @@
         </div>
       </div>
     </section>
+    
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>Made with love ©2021</p>
+      </div>
+    </footer>
+
   </body>
 </html>

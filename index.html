@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css" />
-  <link rel="stylesheet" href="./assets/css/reset.css" />
-  <link rel="stylesheet" href="./assets/css/styles.css" />
-  <title>Reading Planner</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css" />
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <title>Reading Planner</title>
+  </head>
 
-<body>
+ <body>
   <!--Nav bar-->
   <header>
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <div class="logo">
-
           <a href="website-logo" class="navbar-item" width="112" height="28"><i class="fas fa-book-open"></i><span class="logo-title">Readers Revival</span></a>
         </div>
 
@@ -28,36 +27,24 @@
           <span aria-hidden="true"></span>
         </a>
       </div>
+
       <div id="navbarBasicExample" class="navbar-menu nav-list">
         <div class="navbar-end">
-          <li class="nav-item navbar-item"><a href="#my-planner">My Planner</a></li>
-          <li class="last-nav-item navbar-item"><a href="#About-team">About Team</a></li>
+          <li class="nav-item navbar-item"><a href="./myplanner.html">My Planner</a></li>
+          <li class="last-nav-item navbar-item"><a href="./about-teams.html">About Team</a></li>
         </div>
       </div>
     </nav>
   </header>
 
   <body>
-    <!--Nav bar-->
-    <header>
-      <nav>
-        <ul class="nav-list">
-          <li class="logo">
-            <a href="website-logo"><i class="fas fa-book-open"></i></a>
-          </li>
-
-          <ul>
-            <li class="nav-item"><a href="./myplanner.html">My Planner</a></li>
-            <li class="last-nav-item"><a href="#About-team">About Team</a></li>
-          </ul>
-        </ul>
-      </nav>
-    </header>
-
+  
     <main>
       <section class="wrapper">
         <aside class="aside-container">
-          <!--Enter search bar design here-->
+
+          <!--Search bar-->
+
           <form class="form-container">
             <h2>Search a book</h2>
             <input type="text" placeholder="Enter book title" />
@@ -65,10 +52,12 @@
               Search
             </button>
           </form>
+
           <div class="border"></div>
           <button class="button" id="btn-generate" type="submit">
             Generate random book
           </button>
+
           <div class="border"></div>
           <section class="aside-buttons">
             <button class="button">ls book</button>
@@ -83,84 +72,118 @@
         <section class="main-content">
           <!-- Books container -->
           <div class="books-container">
-            <!--  -->
+            
             <div class="columns">
-                <div class="column">
-                    <!-- Book 1 -->
-                    <div class="book-card">
-                        <!-- Link to the actual book on Google boks (on the image) -->
-                        <a href="./">
-                            <img class="book-image" src="./assets/images/demo/harry-potter.jpg"></img>
-                        </a>
-                        <!-- Book info -->
-                        <div class="book-info">
-                            <h3 class="book-title">Harry Potter and the Cursed Child</h3>
-                            <h4 class="book-author">Jack Thorne, J. K. Rowling, John Tiffany</h4>
-                            <!-- Add book to planner button -->
-                            <button class="button is-rounded">Add to Planner</button>
-                        </div>
-                    </div>
-                    
-                </div>
-                <!--  -->
-                <div class="column">
-                    <!-- Book 1 -->
-                    <div class="book-card">
-                        <!-- Link to the actual book on Google boks (on the image) -->
-                        <a href="./">
-                            <img class="book-image" src="./assets/images/demo/harry-potter.jpg"></img>
-                        </a>
-                        <!-- Book info -->
-                        <div class="book-info">
-                            <h3 class="book-title">Harry Potter and the Cursed Child</h3>
-                            <h4 class="book-author">Jack Thorne, J. K. Rowling, John Tiffany</h4>
-                            <!-- Add book to planner button -->
-                            <button class="button is-rounded">Add to Planner</button>
-                        </div>
-                    </div>
-                    
-                </div>
+              <div class="column">
 
+                <!-- Book 1 -->
+
+                <div class="book-card">
+                  <a href="./"><img class="book-image" src="./assets/images/demo/harry-potter.jpg"></img></a>
+                  <!-- Book info -->
+                  <div class="book-info">
+                    <h3 class="book-title">Harry Potter and the Cursed Child</h3>
+                    <h4 class="book-author">Jack Thorne, J. K. Rowling, John Tiffany</h4>
+                    <!-- Add book to planner button -->
+                    <button class="button is-rounded">Add to Planner</button>
+                  </div>
+                </div>
+              </div>
+                
+              <div class="column">
+
+                <!-- Book 2 -->
+
+                <div class="book-card">
+                  <!-- Link to the actual book on Google books (on the image) -->
+                  <a href="./"><img class="book-image" src="./assets/images/demo/harry-potter.jpg"></img></a>
+                  <!-- Book info -->
+                  <div class="book-info">
+                    <h3 class="book-title">Harry Potter and the Cursed Child</h3>
+                    <h4 class="book-author">Jack Thorne, J. K. Rowling, John Tiffany</h4>
+                    <!-- Add book to planner button -->
+                    <button class="button is-rounded">Add to Planner</button>
+                  </div>
+                </div>
+              </div>
             </div>
 
             <div class="columns">
-                <div class="column">
-                    <!-- Book 1 -->
-                    <div class="book-card">
-                        <!-- Link to the actual book on Google boks (on the image) -->
-                        <a href="./">
-                            <img class="book-image" src="./assets/images/demo/harry-potter.jpg"></img>
-                        </a>
-                        <!-- Book info -->
-                        <div class="book-info">
-                            <h3 class="book-title">Harry Potter and the Cursed Child</h3>
-                            <h4 class="book-author">Jack Thorne, J. K. Rowling, John Tiffany</h4>
-                            <!-- Add book to planner button -->
-                            <button class="button is-rounded">Add to Planner</button>
-                        </div>
-                    </div>
-                    
-                </div>
-                <!--  -->
-                <div class="column">
-                    <!-- Book 1 -->
-                    <div class="book-card">
-                        <!-- Link to the actual book on Google boks (on the image) -->
-                        <a href="./">
-                            <img class="book-image" src="./assets/images/demo/harry-potter.jpg"></img>
-                        </a>
-                        <!-- Book info -->
-                        <div class="book-info">
-                            <h3 class="book-title">Harry Potter and the Cursed Child</h3>
-                            <h4 class="book-author">Jack Thorne, J. K. Rowling, John Tiffany</h4>
-                            <!-- Add book to planner button -->
-                            <button class="button is-rounded">Add to Planner</button>
-                        </div>
-                    </div>
-                    
-                </div>
+              <div class="column">
 
+                <!-- Book 3 -->
+
+                <div class="book-card">
+                  <a href="./"><img class="book-image" src="./assets/images/demo/harry-potter.jpg"></img></a>
+                  <!-- Book info -->
+                  <div class="book-info">
+                    <h3 class="book-title">Harry Potter and the Cursed Child</h3>
+                    <h4 class="book-author">Jack Thorne, J. K. Rowling, John Tiffany</h4>
+                    <!-- Add book to planner button -->
+                    <button class="button is-rounded">Add to Planner</button>
+                  </div>
+                </div>
+              </div>
+
+              
+              <div class="column">
+
+                <!-- Book 4 -->
+
+                <div class="book-card">
+                  <!-- Link to the actual book on Google books (on the image) -->
+                  <a href="./"><img class="book-image" src="./assets/images/demo/harry-potter.jpg"></img></a>
+                  <!-- Book info -->
+                  <div class="book-info">
+                    <h3 class="book-title">Harry Potter and the Cursed Child</h3>
+                    <h4 class="book-author">Jack Thorne, J. K. Rowling, John Tiffany</h4>
+                    <!-- Add book to planner button -->
+                    <button class="button is-rounded">Add to Planner</button>
+                  </div>
+                </div>
+              </div>
             </div>
+
+
+            <div class="columns">
+              <div class="column">
+
+                <!-- Book 5 -->
+
+                <div class="book-card">
+                  <a href="./"><img class="book-image" src="./assets/images/demo/harry-potter.jpg"></img></a>
+                  <!-- Book info -->
+                  <div class="book-info">
+                    <h3 class="book-title">Harry Potter and the Cursed Child</h3>
+                    <h4 class="book-author">Jack Thorne, J. K. Rowling, John Tiffany</h4>
+                    <!-- Add book to planner button -->
+                    <button class="button is-rounded">Add to Planner</button>
+                  </div>
+                </div>
+              </div>
+
+              
+              <div class="column">
+
+                <!-- Book 6 -->
+
+                <div class="book-card">
+                  <!-- Link to the actual book on Google books (on the image) -->
+                  <a href="./"><img class="book-image" src="./assets/images/demo/harry-potter.jpg"></img></a>
+                  <!-- Book info -->
+                  <div class="book-info">
+                    <h3 class="book-title">Harry Potter and the Cursed Child</h3>
+                    <h4 class="book-author">Jack Thorne, J. K. Rowling, John Tiffany</h4>
+                    <!-- Add book to planner button -->
+                    <button class="button is-rounded">Add to Planner</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
           </div>
         </section>
       </section>
@@ -168,7 +191,7 @@
 
     <footer class="footer">
       <div class="content has-text-centered">
-        <p>Made with love 2021©</p>
+        <p>Made with love ©2021</p>
       </div>
     </footer>
 
