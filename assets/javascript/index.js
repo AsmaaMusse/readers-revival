@@ -21,7 +21,7 @@ const getBookCardsData = (books) => {
             img: bookItem.volumeInfo.imageLinks.smallThumbnail,
         };
     };
-    return books.items.slice(0, 6).map(callback);
+    return books.items.map(callback);
 };
 
 const getBookData = async(bookName) => {
@@ -32,6 +32,10 @@ const getBookData = async(bookName) => {
     const bookCard = getBookCardsData(bookData);
 
     console.log(bookCard);
+
+    return {
+        bookCard: bookCard,
+    };
 };
 
 const getFromLS = () => {
