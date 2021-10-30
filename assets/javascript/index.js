@@ -63,12 +63,14 @@ const handleSearch = async(event) => {
     event.preventDefault();
 
     const bookTitle = $("#search-input").val();
-    console.log(bookTitle);
 
     if (bookTitle) {
+        console.log(bookTitle);
         // renderBookCards()
         setBooksInLS(bookTitle);
         // renderRecentSearches();
+    } else {
+        return alert("Please enter a book title!");
     }
 };
 
