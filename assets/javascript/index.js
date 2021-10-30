@@ -1,3 +1,7 @@
+const searchForm = $("#search-form");
+const searchInputContainer = $("#search-input-container")
+
+
 $(document).ready(() => {
   hamburgerDropDown();
 });
@@ -34,6 +38,15 @@ const getBookData = async (bookName) => {
 
   console.log(bookCard);
 };
+
+const renderRandomBook = function (randomBook) {
+ const randomBookContainer = $("<div>").addClass
+}
+
+const renderBookCard = function() {}
+
+
+
 
 getBookData("harry potter");
 
@@ -72,5 +85,5 @@ const handleReady = function () {
 
 
 // Add event listener
-$("#search-form").on("submit", handleSearch);
+searchForm.on("submit", handleSearch);
 $(document).ready(handleReady);
