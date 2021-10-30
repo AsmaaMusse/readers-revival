@@ -17,6 +17,7 @@ const getBookCardsData = (books) => {
     const callback = (bookItem) => {
         return {
             title: bookItem.volumeInfo.title,
+            authors: bookItem.volumeInfo.authors,
             description: bookItem.volumeInfo.description,
             img: bookItem.volumeInfo.imageLinks.smallThumbnail,
         };
@@ -30,8 +31,6 @@ const getBookData = async(bookName) => {
     const bookData = await bookDataResponse.json();
 
     const bookCard = getBookCardsData(bookData);
-
-    console.log(bookCard);
 
     return {
         bookCard: bookCard,
@@ -61,7 +60,29 @@ const setBooksInLS = (bookName) => {
     }
 };
 
-const renderBookInfo = () => {};
+const renderBookCard = (book) => {
+    const constructCard = (each) => {
+        return `<div class="book-card">
+                    <a href="./">
+                        <img class="book-image" src="${each.img}" />
+                    </a>
+                    <div class="book-info">
+                        <h3 class="book-title">${each.title}</h3>
+                        <h4 class="book-author">${each.authors}</h4>
+                        <!-- Add book to planner button -->
+                        <button class="button is-rounded">Add to Planner</button>
+                    </div>
+                </div>`;
+    };
+
+    const bookCard = book.map(constructCard);
+};
+
+const renderBookInfo = async(title) => {
+    const bookInfo = await getBookData(title);
+
+    renderBookCard(bookInfo.bookCard);
+};
 
 const handleSearch = async(event) => {
     event.preventDefault();
@@ -69,8 +90,7 @@ const handleSearch = async(event) => {
     const bookTitle = $("#search-input").val();
 
     if (bookTitle) {
-        console.log(bookTitle);
-        // renderBookCards()
+        renderBookInfo(bookTitle);
         setBooksInLS(bookTitle);
         // renderRecentSearches();
     } else {
@@ -79,19 +99,15 @@ const handleSearch = async(event) => {
 };
 
 const handleReady = () => {
-    // renderRecentSearches();
-
     // Get book from LS
     const book = getFromLS();
 
     // if there are recent book get the info for the most recent book
     if (book.length) {
         const bookName = book[book.length - 1];
-        renderBookInfo(bookName);
+        // renderRecentSearches(bookName);
     }
 };
-
-getBookData("harry potter and the cursed child");
 
 // Add event listener
 $("#search-form").on("submit", handleSearch);
