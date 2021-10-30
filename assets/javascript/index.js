@@ -70,5 +70,6 @@ const handleReady = function () {
   }
 };
 
+// Add event listener
 $("#search-form").on("submit", handleSearch);
 $(document).ready(handleReady);
