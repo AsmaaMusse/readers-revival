@@ -51,3 +51,24 @@ const setBooksInLS = function (bookName) {
     localStorage.setItem("recentBook", JSON.stringify(book));
   }
 };
+
+const renderRecentBook = () {}
+const renderBookInfo = () {}
+
+
+const handleReady = function () {
+  // render recent books
+  renderRecentBook();
+
+  // Get book from LS
+  const book = JSON.parse(localStorage.getItem("recentBook")) ?? [];
+
+  // if there are recent book get the info for the most recent book
+  if (book.length) {
+    const bookName = book[book.length - 1];
+    renderBookInfo(bookName);
+  }
+};
+
+$("#search-form").on("submit", handleSearch);
+$(document).ready(handleReady);
