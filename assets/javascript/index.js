@@ -64,6 +64,12 @@ const handleSearch = async(event) => {
 
     const bookTitle = $("#search-input").val();
     console.log(bookTitle);
+
+    if (bookTitle) {
+        // renderBookCards()
+        setBooksInLS(bookTitle);
+        // renderRecentSearches();
+    }
 };
 
 const handleReady = () => {
