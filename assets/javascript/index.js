@@ -52,8 +52,8 @@ const setBooksInLS = function (bookName) {
   }
 };
 
-const renderRecentBook = () {}
-const renderBookInfo = () {}
+const renderRecentBook = () {};
+const renderBookInfo = () {};
 
 
 const handleReady = function () {
@@ -70,5 +70,7 @@ const handleReady = function () {
   }
 };
 
+
+// Add event listener
 $("#search-form").on("submit", handleSearch);
 $(document).ready(handleReady);
