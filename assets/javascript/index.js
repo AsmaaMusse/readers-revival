@@ -57,13 +57,17 @@ const setBooksInLS = (bookName) => {
     }
 };
 
-const renderBookCard = () => {};
-const renderRecentBook = () => {};
 const renderBookInfo = () => {};
 
+const handleSearch = async(event) => {
+    event.preventDefault();
+
+    const bookTitle = $("#search-input").val();
+    console.log(bookTitle);
+};
+
 const handleReady = () => {
-    // render recent books
-    renderRecentBook();
+    // renderRecentSearches();
 
     // Get book from LS
     const book = getFromLS();
