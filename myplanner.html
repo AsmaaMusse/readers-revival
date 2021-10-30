@@ -4,13 +4,18 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css"
+    />
     <link rel="stylesheet" href="./assets/css/myplanner.css" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <title>My planner</title>
   </head>
-
 
   <body>
     <!--Navbar-->
@@ -18,20 +23,33 @@
       <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
           <div class="logo">
-            <a href="website-logo" class="navbar-item" width="112" height="28"><i class="fas fa-book-open"></i><span class="logo-title">Readers Revival</span></a>
+            <a href="website-logo" class="navbar-item" width="112" height="28"
+              ><i class="fas fa-book-open"></i
+              ><span class="logo-title">Readers Revival</span></a
+            >
           </div>
-  
-          <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+
+          <a
+            role="button"
+            class="navbar-burger"
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navbarBasicExample"
+          >
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
           </a>
         </div>
-        
+
         <div id="navbarBasicExample" class="navbar-menu nav-list">
           <div class="navbar-end">
-            <li class="nav-item navbar-item"><a href="./index.html">Homepage</a></li>
-            <li class="last-nav-item navbar-item"><a href="./about-teams.html">About Team</a></li>
+            <li class="nav-item navbar-item">
+              <a href="./index.html">Homepage</a>
+            </li>
+            <li class="last-nav-item navbar-item">
+              <a href="./about-teams.html">About Team</a>
+            </li>
           </div>
         </div>
       </nav>
@@ -51,45 +69,46 @@
           <button id="next-btn">
             <i class="fas fa-angle-right next"></i>
           </button>
-        </div>  
-        <!-- INSERT SMALL BOOK CARD -->
-        <div class="monthly-book-cards">
-          <section class="main-content">
-            <!-- Books container -->
-            <div class="books-container">
-              <!--  -->
-              <div class="columns">
-                  <div class="column">
-                      <!-- Book 1 -->
-                      <div class="book-card">
-                          <!-- Link to the actual book on Google boks (on the image) -->
-                          <a href="./">
-                              <img class="book-image" src="./assets/images/demo/harry-potter.jpg"></img>
-                          </a>
-                          <!-- Book info -->
-                          <div class="book-info">
-                              <h3 class="book-title">Harry Potter and the Cursed Child</h3>
-                              <h4 class="book-author">Jack Thorne, J. K. Rowling, John Tiffany</h4>
-                              <!-- Add book to planner button -->
-                              <button class="button is-rounded">Add to Planner</button>
-                          </div>
-                      </div>
-                      
-                  </div>
         </div>
+
+        <!-- Saved book container -->
+        <section class="main-content">
+          <!-- Books container -->
+          <div class="books-container">
+              
+            <div class="columns">
+              <div class="column">
+  
+                <!-- Book 1 -->
+  
+                <div class="book-card">
+                  <a href="./"><img class="book-image" src="./assets/images/demo/harry-potter.jpg"></img></a>
+                  <!-- Book info -->
+                  <div class="book-info">
+                    <h3 class="book-title">Harry Potter and the Cursed Child</h3>
+                    <h4 class="book-author">Jack Thorne, J. K. Rowling, John Tiffany</h4>
+                    <!-- Add book to planner button -->
+                    <button class="button is-rounded">Add to Planner</button>
+                  </div>
+                </div>
+
+              </div>
+            </div> 
+          </div>  
+        </section>
+
       </div>
     </div>
 
     <!--Footer-->
     <footer class="footer">
       <div class="content has-text-centered">
-       <p>Made with love ©2021</p>
+        <p>Made with love ©2021</p>
       </div>
     </footer>
-   
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/javascript/planner.js"></script>
-
   </body>
 </html>
