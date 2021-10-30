@@ -1,10 +1,5 @@
 const searchForm = $("#search-form");
-const searchInputContainer = $("#search-input-container")
-
-
-$(document).ready(() => {
-  hamburgerDropDown();
-});
+const searchInputContainer = $("#search-input-container");
 
 const hamburgerDropDown = () => {
   const toggleActive = () => {
@@ -40,20 +35,23 @@ const getBookData = async (bookName) => {
 };
 
 const renderRandomBook = function (randomBook) {
- const randomBookContainer = $("<div>").addClass
-}
+  const randomBookContainer = $("<div>").addClass;
+};
 
-const renderBookCard = function() {}
+const renderBookCard = function () {};
 
+const getFromLS = () => {
+  const book = JSON.parse(localStorage.getItem("recentBook"))
+    ? JSON.parse(localStorage.getItem("recentBook"))
+    : [];
 
-
-
-getBookData("harry potter");
+  return book;
+};
 
 // Save books into Local Storage
 const setBooksInLS = function (bookName) {
   // get books from LS
-  const book = JSON.parse(localStorage.getItem("recentBook")) ?? [];
+  const book = getFromLS();
 
   // if book does not exist
   if (!book.includes(bookName)) {
@@ -65,16 +63,15 @@ const setBooksInLS = function (bookName) {
   }
 };
 
-const renderRecentBook = () {};
-const renderBookInfo = () {};
-
+const renderRecentBook = () => {};
+const renderBookInfo = () => {};
 
 const handleReady = function () {
   // render recent books
   renderRecentBook();
 
   // Get book from LS
-  const book = JSON.parse(localStorage.getItem("recentBook")) ?? [];
+  const book = getFromLS();
 
   // if there are recent book get the info for the most recent book
   if (book.length) {
@@ -83,7 +80,12 @@ const handleReady = function () {
   }
 };
 
+getBookData("harry potter");
 
 // Add event listener
-searchForm.on("submit", handleSearch);
-$(document).ready(handleReady);
+$("#search-form").on("submit", handleSearch);
+
+$(document).ready(() => {
+  hamburgerDropDown();
+  handleReady();
+});
