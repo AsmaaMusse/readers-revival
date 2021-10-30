@@ -73,9 +73,8 @@ const renderBookCard = (book) => {
                     <div class="book-info">
                         <h3 class="book-title">${each.title}</h3>
                         <h4 class="book-author">${each.authors}</h4>
-                        <!-- Add book to planner button -->
-                        <button class="button is-rounded">Add to Planner</button>
                     </div>
+                    <button class="button is-rounded">Add to Planner</button>
                 </div>`;
   };
 
