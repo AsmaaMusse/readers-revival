@@ -148,16 +148,20 @@ body {
 /* Books container */
 
 .books-container {
+  display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+  gap: 50px 20px;
 }
 
 /* Book card */
 
 .book-card {
   display: flex;
+  flex-wrap: wrap;
   background-color: var(--charcoal);
   border-radius: 20px;
-  max-width: 575px;
+  max-width: 500px;
   transition: all 0.2s ease-in-out;
 }
 
@@ -166,48 +170,41 @@ body {
 }
 
 .book-card a {
-  height: 90%;
-  width: 30%;
-  margin: 5%;
+  margin: 20px;
+  width: 150px;
+  height: 200px;
 }
 
-.book-image {
-  /* margin: 20px 20px; */
-  height: 100%;
+.book-card img {
   width: 100%;
+  max-width: 100%;
+  height: 100%;
+  object-fit: fill;
 }
 
 .book-info {
   margin-top: 20px;
   margin-right: 20px;
   margin-bottom: 20px;
-  position: relative;
+  max-width: 250px;
 }
 
-.book-info button {
-  position: absolute;
-  bottom: 5%;
+.book-card button {
+  flex: 1 1 100px;
+  margin: 20px;
 }
 
 .book-title {
   color: var(--bitter-lemon);
   font-weight: bold;
   font-size: 24px;
+  line-height: 1.3;
 }
 
 .book-author {
   margin: 10px 0px;
   color: var(--main-text);
   font-style: italic;
-}
-
-.save-btn {
-  margin-left: 10px;
-}
-
-.book-img,
-.book-img img {
-  height: 300px;
 }
 
 .footer {
@@ -223,30 +220,6 @@ body {
   flex-direction: column;
   width: 100%;
 }
-/* 
-.demo-container {
-  border: 2px solid black;
-  padding: 1rem;
-  margin-bottom: 1.2rem;
-}
-
-.current-book-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-} */
-
-/* .title {
-  color: var(--eerie-black);
-} */
-
-/* .book-cards-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-} */
 
 @media screen and (max-width: 425px) {
   .wrapper {
@@ -267,7 +240,26 @@ body {
     margin: 0 0 1rem 0;
   }
 
-  .book-details {
+  .book-card {
+    margin: 0px 20px;
+    width: 90%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+
+  .book-card:hover {
+    transform: scale(1);
+  }
+
+  .book-card a {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 200px;
+  }
+
+  .book-info {
     margin-left: 30px;
   }
 
@@ -279,8 +271,8 @@ body {
     font-size: 12px;
   }
 
-  .book-info button {
-    font-size: 13px;
-    bottom: -7%;
+  .book-card button {
+    flex: 0;
+    font-size: 16px;
   }
 }
