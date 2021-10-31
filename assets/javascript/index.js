@@ -122,6 +122,8 @@ const handleSearch = async (event) => {
   if (search) {
     renderBookInfo(`${search}`);
     setInLS(`recents`, `${search}`);
+    // Will reload the recents section
+    loadRecentSearches();
   } else {
     return alert("Please enter a book title!");
   }
@@ -133,6 +135,8 @@ const loadRecentSearches = () => {
 
   // if there are recent searches in LS, display on page
   if (recents) {
+    //   Reverse the array so the recents will be ordered from the last searched
+    recents.reverse();
     recentButtons.empty();
     const recentsTitle = `<h2>Recent Searches</h2>`;
     recentButtons.append(recentsTitle);
