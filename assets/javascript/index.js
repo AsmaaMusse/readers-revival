@@ -86,8 +86,17 @@ const renderBookCard = (book) => {
 
   const bookCard = book.map(constructCard);
 
+  // To handle duplicates (the same random book appearing more than once)
+  const randomList = [];
+
   for (let i = 0; i < numberBooksToDisplay; i++) {
-    const randomBook = Math.floor(Math.random() * bookCard.length);
+    let randomBook = Math.floor(Math.random() * bookCard.length);
+
+    while (randomList.includes(randomBook)) {
+      randomBook = Math.floor(Math.random() * bookCard.length);
+    }
+
+    randomList.push(randomBook);
 
     booksContainer.append(bookCard[randomBook]);
   }

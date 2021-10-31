@@ -28,6 +28,7 @@ body {
   padding: 10px;
 }
 .navbar {
+  border-collapse: collapse;
   background-color: rgba(0, 0, 0, 0.01);
 }
 
