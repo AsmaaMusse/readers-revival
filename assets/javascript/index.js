@@ -1,6 +1,7 @@
 const searchForm = $("#search-form");
 const searchInputContainer = $("#search-input-container");
 const booksContainer = $("#books-container");
+const btnGenerateRandom = $("#btn-generate");
 
 // How many books to display on the page
 let numberBooksToDisplay = 6;
@@ -19,11 +20,17 @@ const hamburgerDropDown = () => {
 // Get book card from API
 const getBookCardsData = (books) => {
   const callback = (bookItem) => {
+    // Sometimes the thumbnail is not available, so we're using a placeholder
+    if (!bookItem.volumeInfo.imageLinks) {
+      bookItem.volumeInfo.imageLinks = {
+        thumbnail: "./assets/images/placeholder.png",
+      };
+    }
     return {
       title: bookItem.volumeInfo.title,
       authors: bookItem.volumeInfo.authors,
       description: bookItem.volumeInfo.description,
-      img: bookItem.volumeInfo.imageLinks.smallThumbnail,
+      img: bookItem.volumeInfo.imageLinks.thumbnail,
     };
   };
   return books.items.map(callback);
@@ -78,10 +85,21 @@ const renderBookCard = (book) => {
                 </div>`;
   };
 
+  booksContainer.empty();
+
   const bookCard = book.map(constructCard);
 
+  // To handle duplicates (the same random book appearing more than once)
+  const randomList = [];
+
   for (let i = 0; i < numberBooksToDisplay; i++) {
-    const randomBook = Math.floor(Math.random() * bookCard.length);
+    let randomBook = Math.floor(Math.random() * bookCard.length);
+
+    while (randomList.includes(randomBook)) {
+      randomBook = Math.floor(Math.random() * bookCard.length);
+    }
+
+    randomList.push(randomBook);
 
     booksContainer.append(bookCard[randomBook]);
   }
@@ -93,13 +111,18 @@ const renderBookInfo = async (title) => {
   renderBookCard(bookInfo.bookCard);
 };
 
+const generateRandomBooks = () => {
+  // Get random books by using "" as search query in the Google Books API
+  renderBookInfo(`""`);
+};
+
 const handleSearch = async (event) => {
   event.preventDefault();
 
   const bookTitle = $("#search-input").val();
 
   if (bookTitle) {
-    renderBookInfo(bookTitle);
+    renderBookInfo(`${bookTitle}`);
     setBooksInLS(bookTitle);
     // renderRecentSearches();
   } else {
@@ -118,15 +141,9 @@ const handleReady = () => {
   }
 };
 
-const generateRandomBooks = () => {
-  // Get random books by using "" as search query in the Google Books API
-  renderBookInfo(`""`);
-};
-
-// Add event listener
-$("#search-form").on("submit", handleSearch);
-
 $(document).ready(() => {
+  searchForm.on("submit", handleSearch);
+  btnGenerateRandom.on("click", generateRandomBooks);
   hamburgerDropDown();
   handleReady();
   generateRandomBooks();
