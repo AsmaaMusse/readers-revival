@@ -163,12 +163,19 @@ const handleAddToPlannerClick = (event) => {
     const bookId = $(event.target.parentNode).attr("book-id");
 
     let savedIDs = getFromLS("savedIDs");
+    let notification;
     if (savedIDs && savedIDs.includes(bookId)) {
       console.log("Error: book already saved in LS.");
+      notification = `<div class="notification is-danger" id="notification">Book already exists in your planner.</div>`;
     } else {
       setInLS("savedIDs", `${bookId}`);
-      console.log("Success.");
+      notification = `<div class="notification is-success" id="notification">Book added to your planner successfully.</div>`;
     }
+    $(".navbar").after(notification);
+    $("html, body").animate({ scrollTop: "0px" });
+    setTimeout(() => {
+      $("#notification").remove();
+    }, 1500);
   }
 };
 
