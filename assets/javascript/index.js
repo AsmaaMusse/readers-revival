@@ -143,14 +143,20 @@ const loadRecentSearches = () => {
     const recentsTitle = `<h2>Recent Searches</h2>`;
     recentButtons.append(recentsTitle);
     recents.forEach((element) => {
-      const recentButton = `<button class="button">${element}</button>`;
+      const recentButton = `<button class="button" id="recent-button">${element}</button>`;
       recentButtons.append(recentButton);
     });
   }
 };
 
+const handleRecentBtnClick = (event) => {
+  const searchQuery = $(event.target).text();
+  renderBookInfo(`${searchQuery}`);
+};
+
 $(document).ready(() => {
   searchForm.on("submit", handleSearch);
+  recentButtons.on("click", handleRecentBtnClick);
   btnGenerateRandom.on("click", generateRandomBooks);
   hamburgerDropDown();
   loadRecentSearches();
