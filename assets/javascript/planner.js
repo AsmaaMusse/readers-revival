@@ -70,5 +70,14 @@ $(document).ready(onReady);
 previous.on("click", displayPreviousMonth);
 next.on("click", displayNextMonth);
 
-//render the book cards that were added on to my planner on the box
-// sort book card data into the months it was scheduled for
+// read from local storage get saved books data
+const currentSavedBooks = JSON.parse(localStorage.getItem("savedBooks")) ?? [];
+
+const displaySavedBooks = function () {
+  if (currentSavedBooks === currentMonth) {
+    //then render onto specific month
+    $(".books-container").text();
+  } else {
+    // if no books schedueled for that month then leave empty
+  }
+};
