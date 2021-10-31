@@ -2,6 +2,7 @@ const searchForm = $("#search-form");
 const searchInputContainer = $("#search-input-container");
 const booksContainer = $("#books-container");
 const btnGenerateRandom = $("#btn-generate");
+const recentButtons = $("#recent-buttons");
 
 // How many books to display on the page
 let numberBooksToDisplay = 6;
@@ -48,26 +49,23 @@ const getBookData = async (bookName) => {
   };
 };
 
-const getFromLS = () => {
-  const book = JSON.parse(localStorage.getItem("recentBook"))
-    ? JSON.parse(localStorage.getItem("recentBook"))
-    : [];
-
-  return book;
+// Get from Local Storage
+const getFromLS = (key) => {
+  const item = JSON.parse(localStorage.getItem(`${key}`));
+  return item;
 };
 
-// Save books into Local Storage
-const setBooksInLS = (bookName) => {
-  // get books from LS
-  const book = getFromLS();
-
-  // if book does not exist
-  if (!book.includes(bookName)) {
-    // insert bookName in book
-    book.push(bookName);
-
-    // set book in LS
-    localStorage.setItem("recentBook", JSON.stringify(book));
+// Set in Local Storage
+const setInLS = (key, value) => {
+  const lsKey = getFromLS(key);
+  if (lsKey) {
+    lsKey.push(`${value}`);
+    console.log(lsKey);
+    localStorage.setItem(key, JSON.stringify(lsKey));
+  } else {
+    let arrayValues = [];
+    arrayValues.push(value);
+    localStorage.setItem(key, JSON.stringify(arrayValues));
   }
 };
 
@@ -119,25 +117,29 @@ const generateRandomBooks = () => {
 const handleSearch = async (event) => {
   event.preventDefault();
 
-  const bookTitle = $("#search-input").val();
+  const search = $("#search-input").val();
 
-  if (bookTitle) {
-    renderBookInfo(`${bookTitle}`);
-    setBooksInLS(bookTitle);
-    // renderRecentSearches();
+  if (search) {
+    renderBookInfo(`${search}`);
+    setInLS(`recents`, `${search}`);
   } else {
     return alert("Please enter a book title!");
   }
 };
 
-const handleReady = () => {
-  // Get book from LS
-  const book = getFromLS();
+const loadRecentSearches = () => {
+  // Get recent searches from LS
+  const recents = getFromLS(`recents`);
 
-  // if there are recent book get the info for the most recent book
-  if (book.length) {
-    const bookName = book[book.length - 1];
-    // renderRecentSearches(bookName);
+  // if there are recent searches in LS, display on page
+  if (recents) {
+    recentButtons.empty();
+    const recentsTitle = `<h2>Recent Searches</h2>`;
+    recentButtons.append(recentsTitle);
+    recents.forEach((element) => {
+      const recentButton = `<button class="button">${element}</button>`;
+      recentButtons.append(recentButton);
+    });
   }
 };
 
@@ -145,6 +147,6 @@ $(document).ready(() => {
   searchForm.on("submit", handleSearch);
   btnGenerateRandom.on("click", generateRandomBooks);
   hamburgerDropDown();
-  handleReady();
+  loadRecentSearches();
   generateRandomBooks();
 });
