@@ -28,6 +28,7 @@ const getBookCardsData = (books) => {
       };
     }
     return {
+      id: bookItem.id,
       title: bookItem.volumeInfo.title,
       authors: bookItem.volumeInfo.authors,
       description: bookItem.volumeInfo.description,
@@ -70,7 +71,7 @@ const setInLS = (key, value) => {
 
 const renderBookCard = (book) => {
   const constructCard = (each) => {
-    return `<div class="book-card">
+    return `<div class="book-card" book-id="${each.id}">
                     <a href="./">
                         <img class="book-image" src="${each.img}" />
                     </a>
@@ -78,7 +79,7 @@ const renderBookCard = (book) => {
                         <h3 class="book-title">${each.title}</h3>
                         <h4 class="book-author">${each.authors}</h4>
                     </div>
-                    <button class="button is-rounded">Add to Planner</button>
+                    <button class="button is-rounded" id="addToPlanner">Add to Planner</button>
                 </div>`;
   };
 
@@ -150,14 +151,32 @@ const loadRecentSearches = () => {
 };
 
 const handleRecentBtnClick = (event) => {
-  const searchQuery = $(event.target).text();
-  renderBookInfo(`${searchQuery}`);
+  if (event.target.id === "recent-button") {
+    const searchQuery = $(event.target).text();
+    renderBookInfo(`${searchQuery}`);
+  }
+};
+
+const handleAddToPlannerClick = (event) => {
+  if (event.target.id === "addToPlanner") {
+    // Get book ID from parent element
+    const bookId = $(event.target.parentNode).attr("book-id");
+
+    let savedIDs = getFromLS("savedIDs");
+    if (savedIDs && savedIDs.includes(bookId)) {
+      console.log("Error: book already saved in LS.");
+    } else {
+      setInLS("savedIDs", `${bookId}`);
+      console.log("Success.");
+    }
+  }
 };
 
 $(document).ready(() => {
   searchForm.on("submit", handleSearch);
   recentButtons.on("click", handleRecentBtnClick);
   btnGenerateRandom.on("click", generateRandomBooks);
+  booksContainer.on("click", handleAddToPlannerClick);
   hamburgerDropDown();
   loadRecentSearches();
   generateRandomBooks();
