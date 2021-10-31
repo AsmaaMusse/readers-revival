@@ -31,8 +31,12 @@ body {
 .navbar {
   background: var(--marigold);
 }
+
 .logo {
   margin-right: auto;
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
   color: var(--main-text);
 }
 
