@@ -1,6 +1,7 @@
 const searchForm = $("#search-form");
 const searchInputContainer = $("#search-input-container");
 const booksContainer = $("#books-container");
+const btnGenerateRandom = $("#btn-generate");
 
 // How many books to display on the page
 let numberBooksToDisplay = 6;
@@ -84,6 +85,8 @@ const renderBookCard = (book) => {
                 </div>`;
   };
 
+  booksContainer.empty();
+
   const bookCard = book.map(constructCard);
 
   // To handle duplicates (the same random book appearing more than once)
@@ -119,7 +122,6 @@ const handleSearch = async (event) => {
   const bookTitle = $("#search-input").val();
 
   if (bookTitle) {
-    booksContainer.empty();
     renderBookInfo(`${bookTitle}`);
     setBooksInLS(bookTitle);
     // renderRecentSearches();
@@ -141,6 +143,7 @@ const handleReady = () => {
 
 $(document).ready(() => {
   searchForm.on("submit", handleSearch);
+  btnGenerateRandom.on("click", generateRandomBooks);
   hamburgerDropDown();
   handleReady();
   generateRandomBooks();
