@@ -23,7 +23,7 @@ const getBookCardsData = (books) => {
       title: bookItem.volumeInfo.title,
       authors: bookItem.volumeInfo.authors,
       description: bookItem.volumeInfo.description,
-      img: bookItem.volumeInfo.imageLinks.smallThumbnail,
+      img: bookItem.volumeInfo.imageLinks.thumbnail,
     };
   };
   return books.items.map(callback);
@@ -93,13 +93,19 @@ const renderBookInfo = async (title) => {
   renderBookCard(bookInfo.bookCard);
 };
 
+const generateRandomBooks = () => {
+  // Get random books by using "" as search query in the Google Books API
+  renderBookInfo(`""`);
+};
+
 const handleSearch = async (event) => {
   event.preventDefault();
 
   const bookTitle = $("#search-input").val();
 
   if (bookTitle) {
-    renderBookInfo(bookTitle);
+    booksContainer.empty();
+    renderBookInfo(`${bookTitle}`);
     setBooksInLS(bookTitle);
     // renderRecentSearches();
   } else {
@@ -118,15 +124,8 @@ const handleReady = () => {
   }
 };
 
-const generateRandomBooks = () => {
-  // Get random books by using "" as search query in the Google Books API
-  renderBookInfo(`""`);
-};
-
-// Add event listener
-$("#search-form").on("submit", handleSearch);
-
 $(document).ready(() => {
+  searchForm.on("submit", handleSearch);
   hamburgerDropDown();
   handleReady();
   generateRandomBooks();
