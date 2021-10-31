@@ -72,12 +72,12 @@ next.on("click", displayNextMonth);
 
 // read from local storage get saved books data
 const currentSavedBooks = JSON.parse(localStorage.getItem("savedBooks")) ?? [];
-
-const displaySavedBooks = function () {
+//render book function
+const renderDisplaySavedBooks = function () {
   if (currentSavedBooks === currentMonth) {
     //then render onto specific month
     $(".books-container").text();
   } else {
-    // if no books schedueled for that month then leave empty
+    //leave empty
   }
 };
