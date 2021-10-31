@@ -19,6 +19,12 @@ const hamburgerDropDown = () => {
 // Get book card from API
 const getBookCardsData = (books) => {
   const callback = (bookItem) => {
+    // Sometimes the thumbnail is not available, so we're using a placeholder
+    if (!bookItem.volumeInfo.imageLinks) {
+      bookItem.volumeInfo.imageLinks = {
+        thumbnail: "./assets/images/placeholder.png",
+      };
+    }
     return {
       title: bookItem.volumeInfo.title,
       authors: bookItem.volumeInfo.authors,
