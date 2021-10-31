@@ -60,7 +60,6 @@ const setInLS = (key, value) => {
   const lsKey = getFromLS(key);
   if (lsKey) {
     lsKey.push(`${value}`);
-    console.log(lsKey);
     localStorage.setItem(key, JSON.stringify(lsKey));
   } else {
     let arrayValues = [];
@@ -121,6 +120,7 @@ const handleSearch = async (event) => {
 
   if (search) {
     renderBookInfo(`${search}`);
+    const previousSearches = getFromLS(`recents`);
     setInLS(`recents`, `${search}`);
     // Will reload the recents section
     loadRecentSearches();
@@ -135,8 +135,10 @@ const loadRecentSearches = () => {
 
   // if there are recent searches in LS, display on page
   if (recents) {
-    //   Reverse the array so the recents will be ordered from the last searched
     recents.reverse();
+    while (recents.length > 5) {
+      recents.pop();
+    }
     recentButtons.empty();
     const recentsTitle = `<h2>Recent Searches</h2>`;
     recentButtons.append(recentsTitle);
