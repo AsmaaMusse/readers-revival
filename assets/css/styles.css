@@ -13,7 +13,6 @@ body {
   background-color: #cedada;
   background-image: linear-gradient(135deg, #cedada 0%, #2f4858 100%);
   font-family: "Rubik", sans-serif;
-  position: absolute;
 }
 
 .wrapper {
