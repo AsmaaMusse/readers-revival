@@ -179,6 +179,22 @@ const handleAddToPlannerClick = (event) => {
   }
 };
 
+const constructUserPrompt = () => {
+  return `<div>
+  <label for="start">Start date:</label>
+
+   <input type="date" id="start" name="trip-start"
+     value="2018-07-22"
+     min="2018-01-01" max="2018-12-31">
+   </div>`;
+};
+
+// Target the add to planner
+const addToPlanner = document.getElementById("addToPlanner");
+
+// Add a click event listener to constructUserPrompt
+addToPlanner.addEventListener("click", constructUserPrompt);
+
 $(document).ready(() => {
   searchForm.on("submit", handleSearch);
   recentButtons.on("click", handleRecentBtnClick);

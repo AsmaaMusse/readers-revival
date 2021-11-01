@@ -216,6 +216,12 @@ body {
   text-shadow: 2px 2px 4px #000000;
 }
 
+.userInput {
+  display: block;
+  font: 1rem "Fira Sans", sans-serif;
+  margin: 0.4rem 0;
+}
+
 #notification {
   text-align: center;
   margin: 20px 0px;
