@@ -1,115 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap");
+body {
+    background-color: #cedada;
+    background-image: linear-gradient(135deg, #cedada 0%, #2f4858 100%);
+    font-family: "Rubik", sans-serif;
+}
+
 :root {
-  --main-text: #ffffff;
-  --border: #000000;
-  --bitter-lemon: #c2e812ff;
-  --light-gray: #cedadaff;
-  --marigold: #ec9f05ff;
-  --eerie-black: #191919ff;
-  --charcoal: #2f4858ff;
+    --main-text: #ffffff;
+    --border: #000000;
+    --bitter-lemon: #c2e812ff;
+    --light-gray: #cedadaff;
+    --marigold: #ec9f05ff;
+    --eerie-black: #191919ff;
+    --charcoal: #2f4858ff;
 }
 
 body {
-  background-color: var(--light-gray);
-  background-color: var(--light-gray);
-  font-family: "Rubik", sans-serif;
+    background-color: #cedada;
+    background-image: linear-gradient(135deg, #cedada 0%, #2f4858 100%);
+    font-family: "Rubik", sans-serif;
 }
 
 .navbar-menu {
-  color: var(--main-text);
-  background: var(--marigold);
-  padding: 21px;
+    background-color: rgba(0, 0, 0, 0.01);
+    padding: 10px;
 }
+
 .navbar {
-  background: var(--marigold);
+    border-collapse: collapse;
+    background-color: rgba(0, 0, 0, 0.01);
 }
+
 .logo {
-  margin-right: auto;
-  color: var(--main-text);
+    margin-right: auto;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.3);
+    color: var(--eerie-black);
 }
 
 .logo i {
-  margin-right: 10px;
+    margin-right: 10px;
 }
 
 .logo a {
-  text-decoration: none;
-  align-items: center;
-  color: var(--clr-background);
-  font-size: 35px;
-  letter-spacing: 4px;
+    text-decoration: none;
+    align-items: center;
+    color: var(--clr-background);
+    font-size: 25px;
+    letter-spacing: 4px;
 }
 
 .logo a:hover {
-  color: var(--eerie-black);
-  transition: all 200ms ease-in;
+    color: var(--main-text);
+    transition: all 200ms ease-in;
 }
 
 .nav-item a,
 .last-nav-item a {
-  text-decoration: none;
-  color: var(--main-text);
-  letter-spacing: 3px;
-  font-size: 25px;
+    text-decoration: none;
+    color: var(--main-text);
+    letter-spacing: 3px;
+    font-size: 22px;
 }
 
 .nav-item a:hover,
 .last-nav-item a:hover {
-  color: var(--eerie-black);
-  transition: all 200ms ease-in;
+    color: var(--eerie-black);
+    transition: all 200ms ease-in;
 }
+
 
 /* Cards container */
 
 .main-container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
 }
 
 .card {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  width: 400px;
-  margin: 30px;
-  padding: 20px;
-  border: solid;
-  border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 400px;
+    margin: 30px;
+    padding: 20px;
+    border: solid;
+    border-radius: 10px;
 }
 
 .card-image img {
-  width: 300px;
-  margin-left: 20px;
-  margin-bottom: 20px;
-  border-radius: 5px;
+    width: 300px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    border-radius: 5px;
 }
 
 .card-content {
-  border: solid;
-  padding: 10px;
+    border: solid;
+    padding: 10px;
 }
 
 .card-footer {
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: space-evenly;
-  margin-top: 15px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    margin-top: 15px;
 }
 
 .card-footer a {
-  font-size: 50px;
+    font-size: 50px;
 }
 
 .footer {
-  margin-top: 250px;
-  padding: 3rem;
-  font-size: 18px;
+    margin-top: 250px;
+    padding: 3rem;
+    font-size: 18px;
 }
 
 @media screen and (max-width: 1024px) {
-  .card-image img {
-    margin-left: 0px;
-  }
+    .card-image img {
+        margin-left: 0px;
+    }
 }

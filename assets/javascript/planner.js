@@ -1,4 +1,4 @@
-//declare months
+// Declare months Array
 const months = [
   "January",
   "February",
@@ -13,12 +13,14 @@ const months = [
   "November",
   "December",
 ];
-//declare const
+
+// Declare const
 const previous = $("#prev-btn");
 const next = $("#next-btn");
 const currentMonth = moment().format("MMMM");
 let displayedMonth = currentMonth;
 
+// Render current months
 const renderCurrentMonth = function () {
   $("#month").text(currentMonth);
 };
@@ -31,7 +33,8 @@ const getCurrentMonthIndex = function () {
   const currentMonthIndex = months.findIndex(callback);
   return currentMonthIndex;
 };
-//display month function
+
+// Display Next month function
 const displayNextMonth = function () {
   //listen for current month
   const currentMonthIndex = getCurrentMonthIndex();
@@ -47,10 +50,12 @@ const displayNextMonth = function () {
   $("#month").text(nextMonth);
 };
 
+// Display Previous month function
 const displayPreviousMonth = function () {
   const currentMonthIndex = getCurrentMonthIndex();
   let previousMonth;
 
+  // If current month is January
   if (currentMonthIndex === 0) {
     previousMonth = months[months.length - 1];
   } else {
@@ -102,6 +107,6 @@ const displaySavedBooks = function () {
     //then render onto specific month
     $(".books-container").text();
   } else {
-    // if no books schedueled for that month then leave empty
+    //leave empty
   }
 };
