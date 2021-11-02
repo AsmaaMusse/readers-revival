@@ -15,6 +15,22 @@ body {
   font-family: "Rubik", sans-serif;
 }
 
+.modal-content {
+  width: 50%;
+  color: var(--eerie-black);
+  background-color: var(--light-gray);
+  padding: 25px;
+}
+
+.modal h1 {
+  font-size: 30px;
+  margin-bottom: 35px;
+}
+
+.ui-datepicker {
+  margin: auto;
+}
+
 .wrapper {
   display: flex;
   flex-direction: row;
@@ -169,6 +185,7 @@ body {
 
 .book-card:hover {
   transform: scale(1.1);
+  z-index: 1;
 }
 
 .book-card a {
@@ -190,6 +207,7 @@ body {
   margin-right: 20px;
   margin-bottom: 20px;
   max-width: 250px;
+  z-index: 1;
 }
 
 .book-card button {
@@ -216,9 +234,18 @@ body {
   text-shadow: 2px 2px 4px #000000;
 }
 
+.userInput {
+  display: block;
+  font: 1rem "Fira Sans", sans-serif;
+  margin: 0.4rem 0;
+}
+
 #notification {
   text-align: center;
   margin: 20px 0px;
+}
+
+.dropdown {
 }
 
 .footer {
