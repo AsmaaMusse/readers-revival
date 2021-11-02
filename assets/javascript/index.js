@@ -158,13 +158,39 @@ const handleRecentBtnClick = (event) => {
 };
 
 const constructUserPrompt = () => {
-  return `<div>
-  <label for="start">Start date:</label>
+  const currentMonth = moment().format(`YYYY-MM-DD`);
+  console.log(currentMonth);
+  return `<div class="dropdown">
+  <div class="dropdown-trigger">
+    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+      <span>Dropdown button</span>
+      <span class="icon is-small">
+        <i class="fas fa-angle-down" aria-hidden="true"></i>
+      </span>
+    </button>
+  </div>
+  <div class="dropdown-menu" id="dropdown-menu" role="menu">
+    <div class="dropdown-content">
+    <div class="dropdown-item">
+    Dropdown item
+  </div>
+  <div class="dropdown-item">
+    Other dropdown item
+  </div>
+  <div class="dropdown-item is-active">
+    Active dropdown item
+  </div>
+  <div class="dropdown-item">
+    Other dropdown item
+  </div>
+  <hr class="dropdown-divider">
+  <div class="dropdown-item">
+    With a divider
+  </div>
 
-   <input type="date" id="start" name="trip-start"
-     value="2018-07-22"
-     min="2018-01-01" max="2018-12-31">
-   </div>`;
+    </div>
+  </div>
+</div>`;
 };
 
 const handleAddToPlannerClick = (event) => {
@@ -173,7 +199,7 @@ const handleAddToPlannerClick = (event) => {
     const bookId = $(event.target.parentNode).attr("book-id");
 
     const divUserPrompt = constructUserPrompt();
-    $(event.target).append(divUserPrompt);
+    $(event.target).after(divUserPrompt);
 
     let savedIDs = getFromLS("savedIDs");
     let notification;

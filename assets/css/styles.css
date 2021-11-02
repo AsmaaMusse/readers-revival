@@ -169,6 +169,7 @@ body {
 
 .book-card:hover {
   transform: scale(1.1);
+  z-index: 1;
 }
 
 .book-card a {
@@ -190,6 +191,7 @@ body {
   margin-right: 20px;
   margin-bottom: 20px;
   max-width: 250px;
+  z-index: 1;
 }
 
 .book-card button {
@@ -225,6 +227,9 @@ body {
 #notification {
   text-align: center;
   margin: 20px 0px;
+}
+
+.dropdown {
 }
 
 .footer {
