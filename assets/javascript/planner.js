@@ -71,8 +71,32 @@ previous.on("click", displayPreviousMonth);
 next.on("click", displayNextMonth);
 
 // read from local storage get saved books data
-const currentSavedBooks = JSON.parse(localStorage.getItem("savedBooks")) ?? [];
+const currentSavedBooks = savedItem;
 
+const getSavedBooks = (key) => {
+  const item = JSON.parse(localStorage.getItem(`${key}`));
+  return savedItem;
+};
+
+//construct book card
+const renderSavedBooks = (book) => {
+  const constructSavedCard = (each) => {
+    `<div class="book-card" book-id="${each.id}">
+                    <a href="./">
+                        <img class="book-image" src="${each.img}" />
+                    </a>
+                    <div class="book-info">
+                        <h3 class="book-title">${each.title}</h3>
+                        <h4 class="book-author">${each.authors}</h4>
+                    </div>
+                </div>`;
+  };
+};
+
+console.log(renderSavedBooks);
+
+const savedCard = book.map(constructSavedCard);
+//render book card
 const displaySavedBooks = function () {
   if (currentSavedBooks === currentMonth) {
     //then render onto specific month
