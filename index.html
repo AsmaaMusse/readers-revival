@@ -2,30 +2,60 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css" />
-    <link rel="stylesheet" href="./assets/css/reset.css" />
-    <link rel="stylesheet" href="./assets/css/styles.css" />
-    <title>Reading Planner</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css" />
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.9.2/themes/base/jquery.ui.datepicker.min.css"
+    integrity="sha512-eusji7tb42swvT1itCGFK/hHBYVlHyaL7IISvfHiSjUnlTNczUi5GspyEBkkwtynFuHztN0THBsY8PJ4IyFRPA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.theme.min.css" integrity="sha512-9h7XRlUeUwcHUf9bNiWSTO9ovOWFELxTlViP801e5BbwNJ5ir9ua6L20tEroWZdm+HFBAWBLx2qH4l4QHHlRyg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+  <link rel="stylesheet" href="./assets/css/reset.css" />
+  <link rel="stylesheet" href="./assets/css/styles.css" />
+  <title>Reading Planner</title>
 </head>
 
 <body>
-    <!--Nav bar-->
-    <header>
-        <nav class="navbar" role="navigation" aria-label="main navigation">
-            <div class="navbar-brand">
-                <div class="logo">
-                    <a href="" class="navbar-item" width="112" height="28"><i class="fas fa-book-open"></i><span class="logo-title">Readers Revival</span></a>
-                </div>
+  <!--Nav bar-->
+  <header>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <div class="logo">
+          <a href="" class="navbar-item" width="112" height="28"><i class="fas fa-book-open"></i><span
+              class="logo-title">Readers Revival</span></a>
+        </div>
 
-                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+
+      <div id="navbarBasicExample" class="navbar-menu nav-list">
+        <div class="navbar-end">
+          <li class="nav-item navbar-item"><a href="./myplanner.html">My Planner</a></li>
+          <li class="last-nav-item navbar-item"><a href="./about-teams.html">About Team</a></li>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <body>
+
+    <main>
+      <section class="wrapper">
+        <aside class="search-form aside-container">
+
+          <!--Search bar-->
+
+          <form class="form-container" id="search-form">
+            <div id="search-input-container">
+              <h2>Search a book</h2>
+              <input id="search-input" type="text" placeholder="Enter book title" />
+              <button class="submit-button" id="btn-search" type="submit">Search</button>
             </div>
 
             <div id="navbarBasicExample" class="navbar-menu nav-list">
