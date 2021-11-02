@@ -76,7 +76,7 @@ previous.on("click", displayPreviousMonth);
 next.on("click", displayNextMonth);
 
 // read from local storage get saved books data
-const currentSavedBooks = JSON.parse(localStorage.getItem("savedBooks")) ?? [];
+const currentSavedBooks = JSON.parse(localStorage.getItem("books")) ?? [];
 //render book function
 const renderDisplaySavedBooks = function () {
   if (currentSavedBooks === currentMonth) {
