@@ -215,6 +215,15 @@ const handleAddToPlannerClick = (event) => {
   }
 };
 
+const loadNotificationBadge = () => {
+  // Get how many books there are in LS
+  const numberOfBooks = getFromLS("books").length;
+  // If there are (more than 0), display notification
+  if (numberOfBooks > 0) {
+    const spanNotification = `<span class="badge">${numberOfBooks}</span>`;
+  }
+};
+
 $(document).ready(() => {
   searchForm.on("submit", handleSearch);
   recentButtons.on("click", handleRecentBtnClick);
@@ -222,5 +231,6 @@ $(document).ready(() => {
   booksContainer.on("click", handleAddToPlannerClick);
   hamburgerDropDown();
   loadRecentSearches();
+  loadNotificationBadge();
   generateRandomBooks();
 });
