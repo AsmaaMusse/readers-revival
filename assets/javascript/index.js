@@ -162,32 +162,40 @@ const constructUserPrompt = () => {
   console.log(currentMonth);
   return `<div class="dropdown">
   <div class="dropdown-trigger">
-    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
-      <span>Dropdown button</span>
+    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu3">
+      <span>Click me</span>
       <span class="icon is-small">
         <i class="fas fa-angle-down" aria-hidden="true"></i>
       </span>
     </button>
   </div>
-  <div class="dropdown-menu" id="dropdown-menu" role="menu">
+  <div class="dropdown-menu" id="dropdown-menu3" role="menu">
     <div class="dropdown-content">
-    <div class="dropdown-item">
-    Dropdown item
-  </div>
-  <div class="dropdown-item">
-    Other dropdown item
-  </div>
-  <div class="dropdown-item is-active">
-    Active dropdown item
-  </div>
-  <div class="dropdown-item">
-    Other dropdown item
-  </div>
-  <hr class="dropdown-divider">
-  <div class="dropdown-item">
-    With a divider
-  </div>
-
+      <a href="#" class="dropdown-item">
+        Overview
+      </a>
+      <a href="#" class="dropdown-item">
+        Modifiers
+      </a>
+      <a href="#" class="dropdown-item">
+        Grid
+      </a>
+      <a href="#" class="dropdown-item">
+        Form
+      </a>
+      <a href="#" class="dropdown-item">
+        Elements
+      </a>
+      <a href="#" class="dropdown-item">
+        Components
+      </a>
+      <a href="#" class="dropdown-item">
+        Layout
+      </a>
+      <hr class="dropdown-divider">
+      <a href="#" class="dropdown-item">
+        More
+      </a>
     </div>
   </div>
 </div>`;
