@@ -24,6 +24,11 @@ body {
 
 .modal h1 {
   font-size: 30px;
+  margin-bottom: 35px;
+}
+
+.ui-datepicker {
+  margin: auto;
 }
 
 .wrapper {

@@ -52,7 +52,7 @@ const getBookData = async (bookName) => {
 
 // Get from Local Storage
 const getFromLS = (key) => {
-  const item = JSON.parse(localStorage.getItem(`${key}`));
+  const item = JSON.parse(localStorage.getItem(`${key}`)) || [];
   return item;
 };
 
@@ -60,7 +60,7 @@ const getFromLS = (key) => {
 const setInLS = (key, value) => {
   const lsKey = getFromLS(key);
   if (lsKey) {
-    lsKey.push(`${value}`);
+    lsKey.push(value);
     localStorage.setItem(key, JSON.stringify(lsKey));
   } else {
     let arrayValues = [];
@@ -157,33 +157,61 @@ const handleRecentBtnClick = (event) => {
   }
 };
 
-const constructUserPrompt = () => {
+const getDateValue = () => {
+  return $("#datepicker").datepicker().val();
+};
+
+const checkBookInLS = (arr, bookId) => {
+  return arr.find((book) => book.bookId == bookId);
+};
+
+const notification = (type, message) => {
+  const notificationDiv = `<div class="notification is-${type}" id="notificationDiv">${message}</div>`;
+  $(".navbar").after(notificationDiv);
+  $("html, body").animate({ scrollTop: "0px" });
+  setTimeout(() => {
+    $("#notificationDiv").remove();
+  }, 2500);
+};
+
+const constructModal = (books, bookId) => {
   const modal = $(`.modal`);
   modal.addClass(`is-active`);
+
+  const removeModal = () => modal.removeClass("is-active");
+
+  $("#datepicker").datepicker({
+    onSelect: (selectedDate) => {
+      // Save book functions
+      const bookObj = {
+        bookId,
+        selectedDate,
+      };
+      setInLS("books", bookObj);
+      notification("success", "Book saved in planner successfully.");
+      removeModal();
+    },
+  });
+
+  $(modal).on("click", (event) => {
+    const target = $(event.target);
+    if (target.hasClass("modal-close") && target.is("button")) {
+      removeModal();
+    }
+  });
 };
 
 const handleAddToPlannerClick = (event) => {
   if (event.target.id === "addToPlanner") {
     // Get book ID from parent element
+    const books = getFromLS("books");
     const bookId = $(event.target.parentNode).attr("book-id");
 
-    constructUserPrompt();
-    $(event.target).remove();
-
-    let savedIDs = getFromLS("savedIDs");
-    let notification;
-    if (savedIDs && savedIDs.includes(bookId)) {
-      console.log("Error: book already saved in LS.");
-      notification = `<div class="notification is-danger" id="notification">Book already exists in your planner.</div>`;
+    if (checkBookInLS(books, bookId)) {
+      notification("danger", "Book already exists in planner.");
     } else {
-      setInLS("savedIDs", `${bookId}`);
-      notification = `<div class="notification is-success" id="notification">Book added to your planner successfully.</div>`;
+      constructModal(books, bookId);
     }
-    $(".navbar").after(notification);
-    $("html, body").animate({ scrollTop: "0px" });
-    setTimeout(() => {
-      $("#notification").remove();
-    }, 1500);
   }
 };
 
