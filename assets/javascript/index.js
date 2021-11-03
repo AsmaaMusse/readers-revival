@@ -192,8 +192,10 @@ const getDateValue = () => {
   return $("#datepicker").datepicker().val();
 };
 
-const checkBookInLS = (arr, bookId) => {
-  return arr.find((book) => book.bookId == bookId);
+const checkBookInLS = (arr = [], bookId) => {
+  if (arr.length > 0 && !arr) {
+    return arr.find((book) => book.bookId == bookId);
+  }
 };
 
 const notification = (type, message) => {
@@ -207,10 +209,16 @@ const notification = (type, message) => {
   }, 2500);
 };
 
+const getMonthFromDate = (date) => {
+  return moment(date).format("MMMM");
+};
+
 const constructModal = (books, bookId) => {
   const modal = $(`.modal`);
   modal.addClass(`is-active`);
   const removeModal = () => modal.removeClass("is-active");
+
+  const id = bookId;
 
   let bookObj = {
     bookId,
@@ -219,15 +227,20 @@ const constructModal = (books, bookId) => {
 
   $("#datepicker").datepicker({
     onSelect: (selectedDate) => {
+      const newId = id;
       // Save book functions
       bookObj.date = selectedDate;
+      const pickedMonth = getMonthFromDate(selectedDate);
+      console.log(pickedMonth);
+      console.log(newId);
+      setInLS(pickedMonth, bookId);
       notification("success", "Book saved in planner successfully.");
       removeModal();
       loadNotificationBadge();
     },
   });
 
-  setInLS("books", bookObj);
+  //setInLS("books", bookObj);
 
   $(modal).on("click", (event) => {
     const target = $(event.target);
@@ -240,7 +253,7 @@ const constructModal = (books, bookId) => {
 const handleAddToPlannerClick = (event) => {
   if (event.target.id === "addToPlanner") {
     // Get book ID from parent element
-    const books = getFromLS("books");
+    const books = getFromLS("books") || [];
     const bookId = $(event.target).attr("book-id");
 
     if (checkBookInLS(books, bookId)) {
