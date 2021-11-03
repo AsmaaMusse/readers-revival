@@ -133,32 +133,40 @@ const handleSearch = async (event) => {
 const loadRecentSearches = () => {
   // Get recent searches from LS
   const recents = getFromLS(`recents`);
-
-  // if there are recent searches in LS, display on page
-  if (recents) {
-    recents.reverse();
-    while (recents.length > 5) {
-      recents.pop();
-    }
-    recentButtons.empty();
-    // Flex container to container the Recent Searches title and Clear button
-    const divRecents = `<div class="recents">
+  recents.reverse();
+  while (recents.length > 5) {
+    recents.pop();
+  }
+  recentButtons.empty();
+  // Flex container to container the Recent Searches title and Clear button
+  const divRecents = `<div class="recents">
     <h2>Recent Searches</h2>
-    <button class="clear-btn">clear</button>
+    <button class="clear-btn" id="clear-btn">clear</button>
     </div>`;
 
-    $(recentButtons).append(divRecents);
+  $(recentButtons).append(divRecents);
+  if (recents.length > 0) {
     recents.forEach((element) => {
       const recentButton = `<button class="button" id="recent-button">${element}</button>`;
       recentButtons.append(recentButton);
     });
+  } else {
+    const noRecentsText = `<p class="no-recents">no recent searches</p>`;
+    $("#clear-btn").remove();
+    recentButtons.append(noRecentsText);
   }
 };
 
 const handleRecentBtnClick = (event) => {
+  // Clicked on a recent search
   if (event.target.id === "recent-button") {
     const searchQuery = $(event.target).text();
     renderBookInfo(`${searchQuery}`);
+  }
+  // Clicked on the clear button
+  if (event.target.id === "clear-btn") {
+    localStorage.removeItem("recents");
+    loadRecentSearches();
   }
 };
 

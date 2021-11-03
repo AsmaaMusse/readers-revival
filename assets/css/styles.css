@@ -175,6 +175,13 @@ body {
   cursor: pointer;
 }
 
+.no-recents {
+  font-style: italic;
+  font-size: 14px;
+  margin-top: 15px;
+  text-align: center;
+}
+
 .button {
   background-color: var(--eerie-black);
   color: var(--marigold);
