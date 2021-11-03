@@ -71,7 +71,7 @@ const setInLS = (key, value) => {
 
 const renderBookCard = (book) => {
   const constructCard = (each) => {
-    return `<div class="book-card" book-id="${each.id}">
+    return `<div class="book-card">
                     <a href="./">
                         <img class="book-image" src="${each.img}" />
                     </a>
@@ -79,7 +79,7 @@ const renderBookCard = (book) => {
                         <h3 class="book-title">${each.title}</h3>
                         <h4 class="book-author">${each.authors}</h4>
                     </div>
-                    <button class="button is-rounded" id="addToPlanner">Add to Planner</button>
+                    <button class="button is-rounded" id="addToPlanner" book-id="${each.id}">Add to Planner</button>
                 </div>`;
   };
 
@@ -168,7 +168,9 @@ const checkBookInLS = (arr, bookId) => {
 const notification = (type, message) => {
   const notificationDiv = `<div class="notification is-${type}" id="notificationDiv">${message}</div>`;
   $(".navbar").after(notificationDiv);
-  $("html, body").animate({ scrollTop: "0px" });
+  $("html, body").animate({
+    scrollTop: "0px",
+  });
   setTimeout(() => {
     $("#notificationDiv").remove();
   }, 2500);
@@ -190,6 +192,7 @@ const constructModal = (books, bookId) => {
       setInLS("books", bookObj);
       notification("success", "Book saved in planner successfully.");
       removeModal();
+      loadNotificationBadge();
     },
   });
 
@@ -205,13 +208,24 @@ const handleAddToPlannerClick = (event) => {
   if (event.target.id === "addToPlanner") {
     // Get book ID from parent element
     const books = getFromLS("books");
-    const bookId = $(event.target.parentNode).attr("book-id");
+    const bookId = $(event.target).attr("book-id");
 
     if (checkBookInLS(books, bookId)) {
       notification("danger", "Book already exists in planner.");
     } else {
       constructModal(books, bookId);
     }
+  }
+};
+
+const loadNotificationBadge = () => {
+  // Get how many books there are in LS
+  const numberOfBooks = getFromLS("books").length;
+  // If there are (more than 0), display notification
+  if (numberOfBooks > 0) {
+    if ($("#badge")) $("#badge").remove();
+    const spanNotification = `<span id="badge">${numberOfBooks}</span>`;
+    $("#notification-box").append(spanNotification);
   }
 };
 
@@ -222,5 +236,6 @@ $(document).ready(() => {
   booksContainer.on("click", handleAddToPlannerClick);
   hamburgerDropDown();
   loadRecentSearches();
+  loadNotificationBadge();
   generateRandomBooks();
 });
