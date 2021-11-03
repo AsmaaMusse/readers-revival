@@ -4,6 +4,22 @@ const booksContainer = $("#books-container");
 const btnGenerateRandom = $("#btn-generate");
 const recentButtons = $("#recent-buttons");
 
+// Declare months Array
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
 // How many books to display on the page
 let numberBooksToDisplay = 6;
 
@@ -52,20 +68,20 @@ const getBookData = async (bookName) => {
 
 // Get from Local Storage
 const getFromLS = (key) => {
-  const item = JSON.parse(localStorage.getItem(`${key}`)) || [];
+  const item = JSON.parse(localStorage.getItem(`${key}`));
   return item;
 };
 
 // Set in Local Storage
 const setInLS = (key, value) => {
   const lsKey = getFromLS(key);
+  console.log(lsKey);
   if (lsKey) {
     lsKey.push(value);
     localStorage.setItem(key, JSON.stringify(lsKey));
   } else {
-    let arrayValues = [];
-    arrayValues.push(value);
-    localStorage.setItem(key, JSON.stringify(arrayValues));
+    console.log(value);
+    localStorage.setItem(key, JSON.stringify(value));
   }
 };
 
@@ -133,27 +149,29 @@ const handleSearch = async (event) => {
 const loadRecentSearches = () => {
   // Get recent searches from LS
   const recents = getFromLS(`recents`);
-  recents.reverse();
-  while (recents.length > 5) {
-    recents.pop();
-  }
-  recentButtons.empty();
-  // Flex container to container the Recent Searches title and Clear button
-  const divRecents = `<div class="recents">
-    <h2>Recent Searches</h2>
-    <button class="clear-btn" id="clear-btn">clear</button>
-    </div>`;
+  if (recents) {
+    recents.reverse();
+    while (recents.length > 5) {
+      recents.pop();
+    }
+    recentButtons.empty();
+    // Flex container to container the Recent Searches title and Clear button
+    const divRecents = `<div class="recents">
+      <h2>Recent Searches</h2>
+      <button class="clear-btn" id="clear-btn">clear</button>
+      </div>`;
 
-  $(recentButtons).append(divRecents);
-  if (recents.length > 0) {
-    recents.forEach((element) => {
-      const recentButton = `<button class="button" id="recent-button">${element}</button>`;
-      recentButtons.append(recentButton);
-    });
-  } else {
-    const noRecentsText = `<p class="no-recents">no recent searches</p>`;
-    $("#clear-btn").remove();
-    recentButtons.append(noRecentsText);
+    $(recentButtons).append(divRecents);
+    if (recents.length > 0) {
+      recents.forEach((element) => {
+        const recentButton = `<button class="button" id="recent-button">${element}</button>`;
+        recentButtons.append(recentButton);
+      });
+    } else {
+      const noRecentsText = `<p class="no-recents">no recent searches</p>`;
+      $("#clear-btn").remove();
+      recentButtons.append(noRecentsText);
+    }
   }
 };
 
@@ -192,22 +210,24 @@ const notification = (type, message) => {
 const constructModal = (books, bookId) => {
   const modal = $(`.modal`);
   modal.addClass(`is-active`);
-
   const removeModal = () => modal.removeClass("is-active");
+
+  let bookObj = {
+    bookId,
+    //date,
+  };
 
   $("#datepicker").datepicker({
     onSelect: (selectedDate) => {
       // Save book functions
-      const bookObj = {
-        bookId,
-        selectedDate,
-      };
-      setInLS("books", bookObj);
+      bookObj.date = selectedDate;
       notification("success", "Book saved in planner successfully.");
       removeModal();
       loadNotificationBadge();
     },
   });
+
+  setInLS("books", bookObj);
 
   $(modal).on("click", (event) => {
     const target = $(event.target);
@@ -233,16 +253,26 @@ const handleAddToPlannerClick = (event) => {
 
 const loadNotificationBadge = () => {
   // Get how many books there are in LS
-  const numberOfBooks = getFromLS("books").length;
+  const numberOfBooks = getFromLS("books");
   // If there are (more than 0), display notification
-  if (numberOfBooks > 0) {
+  if (numberOfBooks) {
     if ($("#badge")) $("#badge").remove();
     const spanNotification = `<span id="badge">${numberOfBooks}</span>`;
     $("#notification-box").append(spanNotification);
   }
 };
 
+const initializePlanner = () => {
+  months.forEach((month) => {
+    const lsMonth = getFromLS(month);
+    if (!lsMonth) {
+      setInLS(month, []);
+    }
+  });
+};
+
 $(document).ready(() => {
+  initializePlanner();
   searchForm.on("submit", handleSearch);
   recentButtons.on("click", handleRecentBtnClick);
   btnGenerateRandom.on("click", generateRandomBooks);
