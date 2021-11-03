@@ -18,12 +18,29 @@ const hamburgerDropDown = () => {
     $(".navbar-burger").click(toggleActive);
 };
 
+const getRandomQuote = (quoteObject) => {
+    const callback = (quote) => {
+        if (quote.tag === "motivational" || quote.tag === "attitude") {
+            const text = quote.text;
+            const author = quote.author;
+        }
+        return {
+            text: quote.text,
+            author: quote.author,
+        };
+    };
+    const quotes = quoteObject.quotes.map(callback);
+    console.log(quotes);
+};
+
 const getQuotesData = async() => {
     const quotesURL = `https://goquotes-api.herokuapp.com/api/v1/all/quotes`;
     const quotesResponse = await fetch(quotesURL);
     const quotesData = await quotesResponse.json();
 
-    console.log(quotesData);
+    const quote = getRandomQuote(quotesData);
+
+    return quote;
 };
 
 // Get book card from API
