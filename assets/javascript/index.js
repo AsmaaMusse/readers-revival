@@ -23,13 +23,23 @@ const getRandomQuote = (quoteObject) => {
         if (quote.tag === "motivational" || quote.tag === "attitude") {
             const text = quote.text;
             const author = quote.author;
+            const tag = quote.tag;
+
+            console.log(tag);
+
+            return {
+                text: text,
+                author: author,
+                tag: tag,
+            };
         }
-        return {
-            text: quote.text,
-            author: quote.author,
-        };
     };
-    const quotes = quoteObject.quotes.map(callback);
+    const quotesArray = quoteObject.quotes.map(callback);
+
+    const quotes = quotesArray.filter((object) => {
+        return object !== undefined;
+    });
+
     console.log(quotes);
 };
 
@@ -42,6 +52,8 @@ const getQuotesData = async() => {
 
     return quote;
 };
+
+getQuotesData();
 
 // Get book card from API
 const getBookCardsData = (books) => {
