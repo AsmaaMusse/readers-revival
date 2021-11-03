@@ -64,8 +64,10 @@ const renderBookCard = (book) => {
   }
 };
 
+// Take the book title then construct url and send request
 const renderBookInfo = async (title) => {
-  const bookInfo = await getBookData(title);
+  const url = `books/v1/volumes?q=${title}`;
+  const bookInfo = await getBookData(url);
 
   renderBookCard(bookInfo.bookCard);
 };
@@ -139,18 +141,22 @@ const constructModal = (books, bookId) => {
   const modal = $(`.modal`);
   modal.addClass(`is-active`);
 
+  const book = bookId;
+
   const removeModal = () => modal.removeClass("is-active");
 
   $("#datepicker").datepicker({
-    onSelect: (selectedDate) => {
+    onSelect: function (selectedDate) {
       // Save book functions
       const bookObj = {
-        bookId,
+        bookId: book,
         selectedDate,
       };
+      console.log(bookObj);
       setInLS("books", bookObj);
       notification("success", "Book saved in planner successfully.");
       removeModal();
+      $(this).datepicker("destroy");
     },
   });
 
@@ -163,10 +169,12 @@ const constructModal = (books, bookId) => {
 };
 
 const handleAddToPlannerClick = (event) => {
-  if (event.target.id === "addToPlanner") {
+  const target = $(event.target);
+  if (target.is("button")) {
+    // Get ID of the button
+    const bookId = target.attr("id");
     // Get book ID from parent element
     const books = getFromLS("books");
-    const bookId = $(event.target.parentNode).attr("book-id");
 
     if (checkBookInLS(books, bookId)) {
       notification("danger", "Book already exists in planner.");
