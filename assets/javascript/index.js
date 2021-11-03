@@ -141,8 +141,13 @@ const loadRecentSearches = () => {
       recents.pop();
     }
     recentButtons.empty();
-    const recentsTitle = `<h2>Recent Searches</h2>`;
-    recentButtons.append(recentsTitle);
+    // Flex container to container the Recent Searches title and Clear button
+    const divRecents = `<div class="recents">
+    <h2>Recent Searches</h2>
+    <button class="clear-btn">clear</button>
+    </div>`;
+
+    $(recentButtons).append(divRecents);
     recents.forEach((element) => {
       const recentButton = `<button class="button" id="recent-button">${element}</button>`;
       recentButtons.append(recentButton);
