@@ -4,22 +4,6 @@ const booksContainer = $("#books-container");
 const btnGenerateRandom = $("#btn-generate");
 const recentButtons = $("#recent-buttons");
 
-// Declare months Array
-const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-
 // How many books to display on the page
 let numberBooksToDisplay = 6;
 
@@ -34,28 +18,8 @@ const hamburgerDropDown = () => {
   $(".navbar-burger").click(toggleActive);
 };
 
-// Get book card from API
-const getBookCardsData = (books) => {
-  const callback = (bookItem) => {
-    // Sometimes the thumbnail is not available, so we're using a placeholder
-    if (!bookItem.volumeInfo.imageLinks) {
-      bookItem.volumeInfo.imageLinks = {
-        thumbnail: "./assets/images/placeholder.png",
-      };
-    }
-    return {
-      id: bookItem.id,
-      title: bookItem.volumeInfo.title,
-      authors: bookItem.volumeInfo.authors,
-      description: bookItem.volumeInfo.description,
-      img: bookItem.volumeInfo.imageLinks.thumbnail,
-    };
-  };
-  return books.items.map(callback);
-};
-
-const getBookData = async (bookName) => {
-  const bookUrl = `https://www.googleapis.com/books/v1/volumes?q=${bookName}`;
+/*const getBookData = async (bookName) => {
+  const bookUrl = `${BASEURL}/books/v1/volumes?q=${bookName}`;
   const bookDataResponse = await fetch(bookUrl);
   const bookData = await bookDataResponse.json();
 
@@ -64,18 +28,11 @@ const getBookData = async (bookName) => {
   return {
     bookCard: bookCard,
   };
-};
-
-// Get from Local Storage
-const getFromLS = (key) => {
-  const item = JSON.parse(localStorage.getItem(`${key}`));
-  return item;
-};
+};*/
 
 // Set in Local Storage
 const setInLS = (key, value) => {
   const lsKey = getFromLS(key);
-  console.log(lsKey);
   if (lsKey) {
     lsKey.push(value);
     localStorage.setItem(key, JSON.stringify(lsKey));
@@ -86,19 +43,6 @@ const setInLS = (key, value) => {
 };
 
 const renderBookCard = (book) => {
-  const constructCard = (each) => {
-    return `<div class="book-card">
-                    <a href="./">
-                        <img class="book-image" src="${each.img}" />
-                    </a>
-                    <div class="book-info">
-                        <h3 class="book-title">${each.title}</h3>
-                        <h4 class="book-author">${each.authors}</h4>
-                    </div>
-                    <button class="button is-rounded" id="addToPlanner" book-id="${each.id}">Add to Planner</button>
-                </div>`;
-  };
-
   booksContainer.empty();
 
   const bookCard = book.map(constructCard);
@@ -119,8 +63,10 @@ const renderBookCard = (book) => {
   }
 };
 
+// Take the book title then construct url and send request
 const renderBookInfo = async (title) => {
-  const bookInfo = await getBookData(title);
+  const url = `books/v1/volumes?q=${title}`;
+  const bookInfo = await getBookData(url);
 
   renderBookCard(bookInfo.bookCard);
 };
@@ -136,9 +82,13 @@ const handleSearch = async (event) => {
   const search = $("#search-input").val();
 
   if (search) {
-    renderBookInfo(`${search}`);
-    const previousSearches = getFromLS(`recents`);
-    setInLS(`recents`, `${search}`);
+    renderBookInfo(search);
+    const previousSearches = getFromLS("recents");
+    console.log(search);
+    console.log(previousSearches);
+    previousSearches.push(search);
+    console.log(previousSearches);
+    localStorage.setItem(`recents`, JSON.stringify(previousSearches));
     // Will reload the recents section
     loadRecentSearches();
   } else {
@@ -148,13 +98,14 @@ const handleSearch = async (event) => {
 
 const loadRecentSearches = () => {
   // Get recent searches from LS
-  const recents = getFromLS(`recents`);
+  recentButtons.empty();
+  const recents = getFromLS("recents");
   if (recents) {
     recents.reverse();
     while (recents.length > 5) {
       recents.pop();
     }
-    recentButtons.empty();
+
     // Flex container to container the Recent Searches title and Clear button
     const divRecents = `<div class="recents">
       <h2>Recent Searches</h2>
@@ -216,6 +167,9 @@ const getMonthFromDate = (date) => {
 const constructModal = (books, bookId) => {
   const modal = $(`.modal`);
   modal.addClass(`is-active`);
+
+  const book = bookId;
+
   const removeModal = () => modal.removeClass("is-active");
 
   const id = bookId;
@@ -236,6 +190,7 @@ const constructModal = (books, bookId) => {
       setInLS(pickedMonth, bookId);
       notification("success", "Book saved in planner successfully.");
       removeModal();
+      $(this).datepicker("destroy");
       loadNotificationBadge();
     },
   });
@@ -251,10 +206,12 @@ const constructModal = (books, bookId) => {
 };
 
 const handleAddToPlannerClick = (event) => {
-  if (event.target.id === "addToPlanner") {
+  const target = $(event.target);
+  if (target.is("button")) {
+    // Get ID of the button
+    const bookId = target.attr("id");
     // Get book ID from parent element
     const books = getFromLS("books") || [];
-    const bookId = $(event.target).attr("book-id");
 
     if (checkBookInLS(books, bookId)) {
       notification("danger", "Book already exists in planner.");
@@ -275,17 +232,24 @@ const loadNotificationBadge = () => {
   }
 };
 
-const initializePlanner = () => {
+const initializeLS = () => {
   months.forEach((month) => {
     const lsMonth = getFromLS(month);
+    console.log(lsMonth);
     if (!lsMonth) {
       setInLS(month, []);
     }
   });
+
+  // Initialise recent searches if not there
+  const recents = getFromLS("recents");
+  if (!recents) {
+    setInLS("recents", []);
+  }
 };
 
 $(document).ready(() => {
-  initializePlanner();
+  initializeLS();
   searchForm.on("submit", handleSearch);
   recentButtons.on("click", handleRecentBtnClick);
   btnGenerateRandom.on("click", generateRandomBooks);

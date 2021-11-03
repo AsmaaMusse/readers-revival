@@ -1,24 +1,10 @@
-// Declare months Array
-const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-
 // Declare const
 const previous = $("#prev-btn");
 const next = $("#next-btn");
 const currentMonth = moment().format("MMMM");
+const booksContainer = $("#books-container");
 let displayedMonth = currentMonth;
+let books;
 
 // Render current months
 const renderCurrentMonth = function () {
@@ -43,10 +29,13 @@ const displayNextMonth = function () {
   //render on to page
   if (currentMonthIndex === months.length - 1) {
     nextMonth = months[0];
+    //filterMonthBooks(books, 0);
   } else {
     nextMonth = months[currentMonthIndex + 1];
+    //filterMonthBooks(books, currentMonthIndex + 1);
   }
   displayedMonth = nextMonth;
+  currentMonthSavedBooks(displayedMonth);
   $("#month").text(nextMonth);
 };
 
@@ -62,11 +51,13 @@ const displayPreviousMonth = function () {
     previousMonth = months[currentMonthIndex - 1];
   }
   displayedMonth = previousMonth;
+  currentMonthSavedBooks(displayedMonth);
   $("#month").text(previousMonth);
 };
 
 const onReady = function () {
   renderCurrentMonth();
+  currentMonthSavedBooks(displayedMonth);
 };
 
 $(document).ready(onReady);
@@ -75,10 +66,32 @@ $(document).ready(onReady);
 previous.on("click", displayPreviousMonth);
 next.on("click", displayNextMonth);
 
-// read from local storage get saved books data
-const currentSavedBooks = JSON.parse(localStorage.getItem("books")) ?? [];
-//render book function
-const renderDisplaySavedBooks = function () {
+// Get a month and get the books IDs from that month in LS
+const currentMonthSavedBooks = async function (month) {
+  booksContainer.empty();
+  const books = getFromLS(month);
+  // Holds all the API requests
+  const allBooks = [];
+  for (book of books) {
+    // Construct url
+    const url = `books/v1/volumes/${book}`;
+    console.log(url);
+    // Prepare API call
+    const getBook = getSingleBookData(url);
+    allBooks.push(getBook);
+  }
+  // Use promise to request the available IDs
+  const allBooksResponse = await Promise.all(allBooks);
+  const booksResponse = getBookCardDataFromID(allBooksResponse);
+  console.log(booksResponse);
+  // Construct the book cards
+  const bookCards = booksResponse.map(constructCard);
+  booksContainer.append(bookCards);
+  //console.log(bookCards);
+};
+
+//render book card
+const displaySavedBooks = function () {
   if (currentSavedBooks === currentMonth) {
     //then render onto specific month
     $(".books-container").text();
