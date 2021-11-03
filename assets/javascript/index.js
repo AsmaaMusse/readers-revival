@@ -18,28 +18,8 @@ const hamburgerDropDown = () => {
   $(".navbar-burger").click(toggleActive);
 };
 
-// Get book card from API
-const getBookCardsData = (books) => {
-  const callback = (bookItem) => {
-    // Sometimes the thumbnail is not available, so we're using a placeholder
-    if (!bookItem.volumeInfo.imageLinks) {
-      bookItem.volumeInfo.imageLinks = {
-        thumbnail: "./assets/images/placeholder.png",
-      };
-    }
-    return {
-      id: bookItem.id,
-      title: bookItem.volumeInfo.title,
-      authors: bookItem.volumeInfo.authors,
-      description: bookItem.volumeInfo.description,
-      img: bookItem.volumeInfo.imageLinks.thumbnail,
-    };
-  };
-  return books.items.map(callback);
-};
-
-const getBookData = async (bookName) => {
-  const bookUrl = `https://www.googleapis.com/books/v1/volumes?q=${bookName}`;
+/*const getBookData = async (bookName) => {
+  const bookUrl = `${BASEURL}/books/v1/volumes?q=${bookName}`;
   const bookDataResponse = await fetch(bookUrl);
   const bookData = await bookDataResponse.json();
 
@@ -48,13 +28,7 @@ const getBookData = async (bookName) => {
   return {
     bookCard: bookCard,
   };
-};
-
-// Get from Local Storage
-const getFromLS = (key) => {
-  const item = JSON.parse(localStorage.getItem(`${key}`)) || [];
-  return item;
-};
+};*/
 
 // Set in Local Storage
 const setInLS = (key, value) => {
@@ -70,19 +44,6 @@ const setInLS = (key, value) => {
 };
 
 const renderBookCard = (book) => {
-  const constructCard = (each) => {
-    return `<div class="book-card" book-id="${each.id}">
-                    <a href="./">
-                        <img class="book-image" src="${each.img}" />
-                    </a>
-                    <div class="book-info">
-                        <h3 class="book-title">${each.title}</h3>
-                        <h4 class="book-author">${each.authors}</h4>
-                    </div>
-                    <button class="button is-rounded" id="addToPlanner">Add to Planner</button>
-                </div>`;
-  };
-
   booksContainer.empty();
 
   const bookCard = book.map(constructCard);

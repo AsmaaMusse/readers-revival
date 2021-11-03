@@ -19,6 +19,7 @@ const previous = $("#prev-btn");
 const next = $("#next-btn");
 const currentMonth = moment().format("MMMM");
 let displayedMonth = currentMonth;
+let books;
 
 // Render current months
 const renderCurrentMonth = function () {
@@ -43,8 +44,10 @@ const displayNextMonth = function () {
   //render on to page
   if (currentMonthIndex === months.length - 1) {
     nextMonth = months[0];
+    filterMonthBooks(books, 0);
   } else {
     nextMonth = months[currentMonthIndex + 1];
+    filterMonthBooks(books, currentMonthIndex + 1);
   }
   displayedMonth = nextMonth;
   $("#month").text(nextMonth);
@@ -67,6 +70,8 @@ const displayPreviousMonth = function () {
 
 const onReady = function () {
   renderCurrentMonth();
+  currentSavedBooks();
+  books = getFromLS("books");
 };
 
 $(document).ready(onReady);
@@ -76,31 +81,22 @@ previous.on("click", displayPreviousMonth);
 next.on("click", displayNextMonth);
 
 // read from local storage get saved books data
-const currentSavedBooks = savedItem;
-
-const getSavedBooks = (key) => {
-  const item = JSON.parse(localStorage.getItem(`${key}`));
-  return savedItem;
+const currentSavedBooks = function () {
+  const books = getFromLS("books");
+  console.log(books);
+  console.log(currentMonth);
 };
 
-//construct book card
-const renderSavedBooks = (book) => {
-  const constructSavedCard = (each) => {
-    `<div class="book-card" book-id="${each.id}">
-                    <a href="./">
-                        <img class="book-image" src="${each.img}" />
-                    </a>
-                    <div class="book-info">
-                        <h3 class="book-title">${each.title}</h3>
-                        <h4 class="book-author">${each.authors}</h4>
-                    </div>
-                </div>`;
+const filterMonthBooks = function (arr, currentMonth) {
+  const selectedDate = function (date) {
+    return moment(date).month();
   };
+  const currentBooks = arr.filter(
+    (book) => currentMonth == selectedDate(book.selectedDate)
+  );
+  console.log(currentBooks);
 };
 
-console.log(renderSavedBooks);
-
-const savedCard = book.map(constructSavedCard);
 //render book card
 const displaySavedBooks = function () {
   if (currentSavedBooks === currentMonth) {
