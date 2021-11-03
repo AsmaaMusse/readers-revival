@@ -155,6 +155,33 @@ body {
   opacity: 1;
 }
 
+/* Recents area */
+
+.recents {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.clear-btn {
+  background-color: rgba(0, 0, 0, 0);
+  padding: 3px 7px;
+  color: var(--main-text);
+  border: 1px solid var(--main-text);
+  border-radius: 15px;
+}
+
+.clear-btn:hover {
+  cursor: pointer;
+}
+
+.no-recents {
+  font-style: italic;
+  font-size: 14px;
+  margin-top: 15px;
+  text-align: center;
+}
+
 .button {
   background-color: var(--eerie-black);
   color: var(--marigold);
@@ -260,9 +287,6 @@ body {
 #notification {
   text-align: center;
   margin: 20px 0px;
-}
-
-.dropdown {
 }
 
 .footer {
