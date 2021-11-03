@@ -1,3 +1,19 @@
+// Declare months Array
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+
 const BASEURL = "https://www.googleapis.com";
 
 const constructCard = (each) => {
@@ -15,7 +31,7 @@ const constructCard = (each) => {
 
 // Get from Local Storage
 const getFromLS = (key) => {
-  const item = JSON.parse(localStorage.getItem(`${key}`)) || [];
+  const item = JSON.parse(localStorage.getItem(`${key}`));
   return item;
 };
 

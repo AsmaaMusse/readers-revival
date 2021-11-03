@@ -4,22 +4,6 @@ const booksContainer = $("#books-container");
 const btnGenerateRandom = $("#btn-generate");
 const recentButtons = $("#recent-buttons");
 
-// Declare months Array
-const months = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-
 // How many books to display on the page
 let numberBooksToDisplay = 6;
 
@@ -98,9 +82,13 @@ const handleSearch = async (event) => {
   const search = $("#search-input").val();
 
   if (search) {
-    renderBookInfo(`${search}`);
-    const previousSearches = getFromLS(`recents`);
-    setInLS(`recents`, `${search}`);
+    renderBookInfo(search);
+    const previousSearches = getFromLS("recents");
+    console.log(search);
+    console.log(previousSearches);
+    previousSearches.push(search);
+    console.log(previousSearches);
+    localStorage.setItem(`recents`, JSON.stringify(previousSearches));
     // Will reload the recents section
     loadRecentSearches();
   } else {
@@ -110,13 +98,14 @@ const handleSearch = async (event) => {
 
 const loadRecentSearches = () => {
   // Get recent searches from LS
-  const recents = getFromLS(`recents`);
+  recentButtons.empty();
+  const recents = getFromLS("recents");
   if (recents) {
     recents.reverse();
     while (recents.length > 5) {
       recents.pop();
     }
-    recentButtons.empty();
+
     // Flex container to container the Recent Searches title and Clear button
     const divRecents = `<div class="recents">
       <h2>Recent Searches</h2>
@@ -243,17 +232,24 @@ const loadNotificationBadge = () => {
   }
 };
 
-const initializePlanner = () => {
+const initializeLS = () => {
   months.forEach((month) => {
     const lsMonth = getFromLS(month);
+    console.log(lsMonth);
     if (!lsMonth) {
       setInLS(month, []);
     }
   });
+
+  // Initialise recent searches if not there
+  const recents = getFromLS("recents");
+  if (!recents) {
+    setInLS("recents", []);
+  }
 };
 
 $(document).ready(() => {
-  initializePlanner();
+  initializeLS();
   searchForm.on("submit", handleSearch);
   recentButtons.on("click", handleRecentBtnClick);
   btnGenerateRandom.on("click", generateRandomBooks);
