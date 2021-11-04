@@ -66,14 +66,6 @@ const displayPreviousMonth = function() {
     $("#month").text(previousMonth);
 };
 
-const onReady = function() {
-    hamburgerDropDown();
-    renderCurrentMonth();
-    currentMonthSavedBooks(displayedMonth);
-};
-
-$(document).ready(onReady);
-
 //add event listener
 previous.on("click", displayPreviousMonth);
 next.on("click", displayNextMonth);
@@ -108,3 +100,9 @@ const displaySavedBooks = function() {
         //leave empty
     }
 };
+
+$(document).ready(function() {
+    hamburgerDropDown();
+    renderCurrentMonth();
+    currentMonthSavedBooks(displayedMonth);
+});
