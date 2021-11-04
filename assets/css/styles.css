@@ -1,354 +1,367 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap");
 :root {
-  --main-text: #ffffff;
-  --border: #000000;
-  --bitter-lemon: #c2e812ff;
-  --light-gray: #cedadaff;
-  --marigold: #ec9f05ff;
-  --eerie-black: #191919ff;
-  --charcoal: #2f4858ff;
+    --main-text: #ffffff;
+    --border: #000000;
+    --bitter-lemon: #c2e812ff;
+    --light-gray: #cedadaff;
+    --marigold: #ec9f05ff;
+    --eerie-black: #191919ff;
+    --charcoal: #2f4858ff;
 }
 
 body {
-  background-color: #cedada;
-  background-image: linear-gradient(135deg, #cedada 0%, #2f4858 100%);
-  font-family: "Rubik", sans-serif;
+    background-color: #cedada;
+    background-image: linear-gradient(135deg, #cedada 0%, #2f4858 100%);
+    font-family: "Rubik", sans-serif;
 }
 
 #notification-box {
-  position: relative;
-  margin-right: 15px;
+    position: relative;
+    margin-right: 15px;
 }
 
 #badge {
-  position: absolute;
-  letter-spacing: 1px;
-  top: -10px;
-  right: -18px;
-  padding: 1px 5px;
-  font-size: 14px;
-  border-radius: 50%;
-  background: var(--marigold);
-  color: white;
+    position: absolute;
+    letter-spacing: 1px;
+    top: -10px;
+    right: -18px;
+    padding: 1px 5px;
+    font-size: 14px;
+    border-radius: 50%;
+    background: var(--marigold);
+    color: white;
 }
 
 .modal-content {
-  width: 50%;
-  color: var(--eerie-black);
-  background-color: var(--light-gray);
-  padding: 25px;
+    width: 50%;
+    color: var(--eerie-black);
+    background-color: var(--light-gray);
+    padding: 25px;
 }
 
 .modal h1 {
-  font-size: 30px;
-  margin-bottom: 35px;
+    font-size: 30px;
+    margin-bottom: 35px;
 }
 
 .ui-datepicker {
-  margin: auto;
+    margin: auto;
 }
 
 .wrapper {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 100%;
-  padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
 }
 
 .navbar-menu {
-  background-color: rgba(0, 0, 0, 0.01);
-  padding: 10px;
+    background-color: rgba(0, 0, 0, 0.01);
+    padding: 10px;
 }
+
 .navbar {
-  border-collapse: collapse;
-  background-color: rgba(0, 0, 0, 0.01);
+    border-collapse: collapse;
+    background-color: rgba(0, 0, 0, 0.01);
 }
 
 .logo {
-  margin-right: auto;
-  margin-left: 20px;
-  display: flex;
-  align-items: center;
-  text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.3);
-  color: var(--eerie-black);
+    margin-right: auto;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    text-shadow: 1px 1px 10px rgba(255, 255, 255, 0.3);
+    color: var(--eerie-black);
 }
 
 .logo i {
-  margin-right: 10px;
+    margin-right: 10px;
 }
 
 .logo a {
-  text-decoration: none;
-  align-items: center;
-  color: var(--clr-background);
-  font-size: 25px;
-  letter-spacing: 4px;
+    text-decoration: none;
+    align-items: center;
+    color: var(--clr-background);
+    font-size: 25px;
+    letter-spacing: 4px;
 }
 
 .logo a:hover {
-  color: var(--main-text);
-  transition: all 200ms ease-in;
+    color: var(--main-text);
+    transition: all 200ms ease-in;
 }
 
 .nav-item a,
 .last-nav-item a {
-  text-decoration: none;
-  color: var(--main-text);
-  letter-spacing: 3px;
-  font-size: 22px;
+    text-decoration: none;
+    color: var(--main-text);
+    letter-spacing: 3px;
+    font-size: 22px;
 }
 
 .nav-item a:hover,
 .last-nav-item a:hover {
-  color: var(--eerie-black);
-  transition: all 200ms ease-in;
+    color: var(--eerie-black);
+    transition: all 200ms ease-in;
 }
+
 
 /* Search Container Styles */
 
 .aside-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  height: 100%;
-  margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+    margin-right: 20px;
 }
 
 .form-container,
 .aside-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .form-container h2 {
-  font-weight: 790;
-  font-size: 25px;
+    font-weight: 790;
+    font-size: 25px;
 }
 
 .form-container input {
-  border-radius: 10px;
-  border: 1px solid #dcdcdc;
-  height: 50px;
-  outline: none;
-  padding-right: 10px;
-  padding-left: 10px;
+    border-radius: 10px;
+    border: 1px solid #dcdcdc;
+    height: 50px;
+    outline: none;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .form-container input:hover {
-  box-shadow: 1px 1px 8px 1px var(--eerie-black);
+    box-shadow: 1px 1px 8px 1px var(--eerie-black);
 }
 
 .submit-button {
-  border-radius: 5px;
-  padding: 0.5rem;
-  color: var(--eerie-black);
-  background-color: var(--marigold);
-  opacity: 0.4;
+    border-radius: 5px;
+    padding: 0.5rem;
+    color: var(--eerie-black);
+    background-color: var(--marigold);
+    opacity: 0.4;
 }
 
 .submit-button:hover {
-  cursor: pointer;
-  color: var(--eerie-black);
-  background-color: var(--marigold);
-  opacity: 1;
+    cursor: pointer;
+    color: var(--eerie-black);
+    background-color: var(--marigold);
+    opacity: 1;
 }
+
 
 /* Recents area */
 
 .recents {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .clear-btn {
-  background-color: rgba(0, 0, 0, 0);
-  padding: 3px 7px;
-  color: var(--main-text);
-  border: 1px solid var(--main-text);
-  border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 3px 7px;
+    color: var(--main-text);
+    border: 1px solid var(--main-text);
+    border-radius: 15px;
 }
 
 .clear-btn:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .no-recents {
-  font-style: italic;
-  font-size: 14px;
-  margin-top: 15px;
-  text-align: center;
+    font-style: italic;
+    font-size: 14px;
+    margin-top: 15px;
+    text-align: center;
 }
 
 .button {
-  background-color: var(--eerie-black);
-  color: var(--marigold);
+    background-color: var(--eerie-black);
+    color: var(--marigold);
 }
 
 .button:hover {
-  cursor: pointer;
-  background-color: var(--marigold);
-  color: var(--eerie-black);
+    cursor: pointer;
+    background-color: var(--marigold);
+    color: var(--eerie-black);
 }
 
 .border {
-  border-top: 2px solid black;
+    border-top: 2px solid black;
 }
+
 
 /* Main Content */
 
 .main-content {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
+
+
+/* Quotes Container */
+
+.quote-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 0 20px 0;
+    padding: 20px;
+    width: 87%;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 var(--charcoal);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
 
 /* Books container */
 
 .books-container {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  gap: 50px 20px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 50px 20px;
 }
+
 
 /* Book card */
 
 .book-card {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: 500px;
-  background: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px 0 var(--charcoal);
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  transition: all 0.2s ease-in-out;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 500px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 var(--charcoal);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: all 0.2s ease-in-out;
 }
 
 .book-card:hover {
-  transform: scale(1.1);
-  z-index: 1;
+    transform: scale(1.1);
+    z-index: 1;
 }
 
 .book-card a {
-  margin: 20px;
-  width: 150px;
-  height: 200px;
+    margin: 20px;
+    width: 150px;
+    height: 200px;
 }
 
 .book-card img {
-  width: 100%;
-  max-width: 100%;
-  height: 100%;
-  object-fit: fill;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    object-fit: fill;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .book-info {
-  margin-top: 20px;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  max-width: 250px;
-  z-index: 1;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    max-width: 250px;
+    z-index: 1;
 }
 
 .book-card button {
-  /* So the button is always displayed at the bottom */
-  flex: 1 1;
-  width: max-content;
-  font-size: 20px;
-  margin: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* So the button is always displayed at the bottom */
+    flex: 1 1;
+    width: max-content;
+    font-size: 20px;
+    margin: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .book-title {
-  color: var(--bitter-lemon);
-  font-weight: bold;
-  font-size: 24px;
-  line-height: 1.3;
-  text-shadow: 2px 2px 4px #000000;
+    color: var(--bitter-lemon);
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 1.3;
+    text-shadow: 2px 2px 4px #000000;
 }
 
 .book-author {
-  margin: 10px 0px;
-  color: var(--main-text);
-  font-style: italic;
-  text-shadow: 2px 2px 4px #000000;
+    margin: 10px 0px;
+    color: var(--main-text);
+    font-style: italic;
+    text-shadow: 2px 2px 4px #000000;
 }
 
 .userInput {
-  display: block;
-  font: 1rem "Fira Sans", sans-serif;
-  margin: 0.4rem 0;
+    display: block;
+    font: 1rem "Fira Sans", sans-serif;
+    margin: 0.4rem 0;
 }
 
 #notification {
-  text-align: center;
-  margin: 20px 0px;
+    text-align: center;
+    margin: 20px 0px;
 }
 
 .footer {
-  background-color: rgba(0, 0, 0, 0.01);
-  margin-top: 20px;
-  padding: 3rem;
-  font-size: 18px;
-  color: var(--main-text);
+    background-color: rgba(0, 0, 0, 0.01);
+    margin-top: 20px;
+    padding: 3rem;
+    font-size: 18px;
+    color: var(--main-text);
 }
 
 @media screen and (max-width: 425px) {
-  .wrapper {
-    flex-direction: column;
-  }
-
-  .logo-title {
-    font-size: 22px;
-  }
-
-  .nav-item a,
-  .last-nav-item a {
-    font-size: 20px;
-  }
-
-  .aside-container {
-    width: 100%;
-    margin: 0 0 1rem 0;
-  }
-
-  .book-card {
-    margin: 0px 20px;
-    width: 90%;
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: column;
-  }
-
-  .book-card:hover {
-    transform: scale(1);
-  }
-
-  .book-card a {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    height: 200px;
-  }
-
-  .book-info {
-    margin-left: 30px;
-  }
-
-  .book-title {
-    font-size: 16px;
-  }
-
-  .book-author {
-    font-size: 12px;
-  }
-
-  .book-card button {
-    flex: 0;
-    font-size: 16px;
-  }
+    .wrapper {
+        flex-direction: column;
+    }
+    .logo-title {
+        font-size: 22px;
+    }
+    .nav-item a,
+    .last-nav-item a {
+        font-size: 20px;
+    }
+    .aside-container {
+        width: 100%;
+        margin: 0 0 1rem 0;
+    }
+    .book-card {
+        margin: 0px 20px;
+        width: 90%;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+    }
+    .book-card:hover {
+        transform: scale(1);
+    }
+    .book-card a {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 200px;
+    }
+    .book-info {
+        margin-left: 30px;
+    }
+    .book-title {
+        font-size: 16px;
+    }
+    .book-author {
+        font-size: 12px;
+    }
+    .book-card button {
+        flex: 0;
+        font-size: 16px;
+    }
 }
