@@ -75,7 +75,6 @@ const currentMonthSavedBooks = async function (month) {
   for (book of books) {
     // Construct url
     const url = `books/v1/volumes/${book}`;
-    console.log(url);
     // Prepare API call
     const getBook = getSingleBookData(url);
     allBooks.push(getBook);
@@ -83,11 +82,9 @@ const currentMonthSavedBooks = async function (month) {
   // Use promise to request the available IDs
   const allBooksResponse = await Promise.all(allBooks);
   const booksResponse = getBookCardDataFromID(allBooksResponse);
-  console.log(booksResponse);
   // Construct the book cards
   const bookCards = booksResponse.map(constructCard);
   booksContainer.append(bookCards);
-  //console.log(bookCards);
 };
 
 //render book card
