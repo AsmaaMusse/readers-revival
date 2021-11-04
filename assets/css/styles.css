@@ -326,6 +326,20 @@ body {
     color: var(--main-text);
 }
 
+@media screen and (max-width: 725px) {
+    .book-card {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: column;
+        align-items: center;
+        margin: 0px 20px;
+        width: 90%;
+    }
+    .book-info {
+        margin-left: 30px;
+    }
+}
+
 @media screen and (max-width: 480px) {
     .wrapper {
         flex-direction: column;
@@ -341,13 +355,6 @@ body {
         width: 100%;
         margin: 0 0 2rem 0;
     }
-    .book-card {
-        margin: 0px 20px;
-        width: 90%;
-        display: flex;
-        flex-wrap: nowrap;
-        flex-direction: column;
-    }
     .book-card:hover {
         transform: scale(1);
     }
@@ -356,9 +363,6 @@ body {
         margin-left: auto;
         margin-right: auto;
         height: 200px;
-    }
-    .book-info {
-        margin-left: 30px;
     }
     .book-title {
         font-size: 16px;
