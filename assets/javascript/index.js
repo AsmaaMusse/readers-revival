@@ -166,6 +166,7 @@ const handleSearch = async(event) => {
     const search = $("#search-input").val();
 
     if (search) {
+        quoteContainer.remove();
         renderBookInfo(`${search}`);
         const previousSearches = getFromLS(`recents`);
         setInLS(`recents`, `${search}`);
@@ -198,6 +199,7 @@ const loadRecentSearches = () => {
 
 const handleRecentBtnClick = (event) => {
     if (event.target.id === "recent-button") {
+        quoteContainer.remove();
         const searchQuery = $(event.target).text();
         renderBookInfo(`${searchQuery}`);
     }
