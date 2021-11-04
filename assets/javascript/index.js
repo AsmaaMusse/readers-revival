@@ -20,12 +20,10 @@ const hamburgerDropDown = () => {
 
 const getRandomQuote = (quoteObject) => {
     const callback = (quote) => {
-        if (quote.tag === "motivational" || quote.tag === "attitude") {
+        if (quote.tag === "motivational") {
             const text = quote.text;
             const author = quote.author;
             const tag = quote.tag;
-
-            console.log(tag);
 
             return {
                 text: text,
@@ -35,12 +33,13 @@ const getRandomQuote = (quoteObject) => {
         }
     };
     const quotesArray = quoteObject.quotes.map(callback);
-
     const quotes = quotesArray.filter((object) => {
         return object !== undefined;
     });
 
-    console.log(quotes);
+    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
+    return randomQuote;
 };
 
 const getQuotesData = async() => {
