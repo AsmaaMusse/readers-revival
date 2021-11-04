@@ -1,94 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css" />
+    <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/myplanner.css" />
     <link rel="stylesheet" href="./assets/css/styles.css" />
     <title>My planner</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <!--Navbar-->
     <header>
-      <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <div class="logo">
-            <a href="website-logo" class="navbar-item" width="112" height="28"
-              ><i class="fas fa-book-open"></i
-              ><span class="logo-title">Readers Revival</span></a
-            >
-          </div>
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <div class="logo">
+                    <a href="website-logo" class="navbar-item" width="112" height="28"><i class="fas fa-book-open"></i
+							><span class="logo-title">Readers Revival</span></a
+						>
+					</div>
 
-          <a
-            role="button"
-            class="navbar-burger"
-            aria-label="menu"
-            aria-expanded="false"
-            data-target="navbarBasicExample"
-          >
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
+					<a
+						role="button"
+						class="navbar-burger"
+						aria-label="menu"
+						aria-expanded="false"
+						data-target="navbarBasicExample"
+					>
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+					</a>
+                </div>
 
-        <div id="navbarBasicExample" class="navbar-menu nav-list">
-          <div class="navbar-end">
-            <li class="nav-item navbar-item">
-              <a href="./index.html">Homepage</a>
-            </li>
-            <li class="last-nav-item navbar-item">
-              <a href="./about-teams.html">About Team</a>
-            </li>
-          </div>
-        </div>
-      </nav>
+                <div id="navbarBasicExample" class="navbar-menu nav-list">
+                    <div class="navbar-end">
+                        <li class="nav-item navbar-item">
+                            <a href="./index.html">Homepage</a>
+                        </li>
+                        <li class="last-nav-item navbar-item">
+                            <a href="./about-teams.html">About Team</a>
+                        </li>
+                    </div>
+                </div>
+        </nav>
     </header>
 
     <!--Monthly calender-->
 
     <div class="container">
-      <div class="calendar">
-        <div class="month-banner">
-          <button id="prev-btn">
-            <i class="fas fa-angle-left prev"></i>
-          </button>
-          <div class="month">
-            <h1 id="month">Month</h1>
-          </div>
-          <button id="next-btn">
-            <i class="fas fa-angle-right next"></i>
-          </button>
-        </div>
+        <div class="calendar">
+            <div class="month-banner">
+                <button id="prev-btn">
+						<i class="fas fa-angle-left prev"></i>
+					</button>
+                <div class="month">
+                    <h1 id="month">Month</h1>
+                </div>
+                <button id="next-btn">
+						<i class="fas fa-angle-right next"></i>
+					</button>
+            </div>
 
-        <!-- Saved book container -->
-        <section class="main-content">
-          <!-- Books container -->
-          <div class="books-container" id="books-container"></div>
-        </section>
-      </div>
+            <!-- Books container -->
+            <div class="planner-content" id="books-container"></div>
+        </div>
     </div>
 
     <!--Footer-->
     <footer class="footer">
-      <div class="content has-text-centered">
-        <p>Made with love ©2021</p>
-      </div>
+        <div class="content has-text-centered">
+            <p>Made with love ©2021</p>
+        </div>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/javascript/sharedscript.js"></script>
     <script src="./assets/javascript/planner.js"></script>
-  </body>
+</body>
+
 </html>
