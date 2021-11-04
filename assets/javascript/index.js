@@ -1,5 +1,6 @@
 const searchForm = $("#search-form");
 const searchInputContainer = $("#search-input-container");
+const quoteContainer = $("#quote-container");
 const booksContainer = $("#books-container");
 const btnGenerateRandom = $("#btn-generate");
 const recentButtons = $("#recent-buttons");
@@ -52,8 +53,6 @@ const getQuotesData = async() => {
     return quote;
 };
 
-getQuotesData();
-
 // Get book card from API
 const getBookCardsData = (books) => {
     const callback = (bookItem) => {
@@ -105,6 +104,18 @@ const setInLS = (key, value) => {
     }
 };
 
+const constructQuote = (data) => {
+    const quote = ` <h2 class="subtitle">"${data.text}"</h2>
+                    <h3>Author: ${data.author}</h3>`;
+    return quote;
+};
+
+const renderQuote = async() => {
+    const quoteData = await getQuotesData();
+    const constructedQuote = constructQuote(quoteData);
+    quoteContainer.append(constructedQuote);
+};
+
 const renderBookCard = (book) => {
     const constructCard = (each) => {
         return `<div class="book-card" book-id="${each.id}">
@@ -152,7 +163,6 @@ const generateRandomBooks = () => {
 
 const handleSearch = async(event) => {
     event.preventDefault();
-
     const search = $("#search-input").val();
 
     if (search) {
@@ -258,5 +268,6 @@ $(document).ready(() => {
     booksContainer.on("click", handleAddToPlannerClick);
     hamburgerDropDown();
     loadRecentSearches();
+    renderQuote();
     generateRandomBooks();
 });
