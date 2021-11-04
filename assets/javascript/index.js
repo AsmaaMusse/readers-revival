@@ -53,18 +53,6 @@ const getQuotesData = async () => {
   return quote;
 };
 
-/*const getBookData = async (bookName) => {
-  const bookUrl = `${BASEURL}/books/v1/volumes?q=${bookName}`;
-  const bookDataResponse = await fetch(bookUrl);
-  const bookData = await bookDataResponse.json();
-
-    const bookCard = getBookCardsData(bookData);
-
-  return {
-    bookCard: bookCard,
-  };
-};*/
-
 const constructQuote = (data) => {
   const quote = ` <h2 class="subtitle">"${data.text}"</h2>
                     <h3>Author: ${data.author}</h3>`;
@@ -84,7 +72,6 @@ const setInLS = (key, value) => {
     lsKey.push(value);
     localStorage.setItem(key, JSON.stringify(lsKey));
   } else {
-    console.log(value);
     localStorage.setItem(key, JSON.stringify(value));
   }
 };
@@ -132,10 +119,7 @@ const handleSearch = async (event) => {
     quoteContainer.remove();
     renderBookInfo(search);
     const previousSearches = getFromLS("recents");
-    console.log(search);
-    console.log(previousSearches);
     previousSearches.push(search);
-    console.log(previousSearches);
     localStorage.setItem(`recents`, JSON.stringify(previousSearches));
     // Will reload the recents section
     loadRecentSearches();
@@ -234,8 +218,6 @@ const constructModal = (books, bookId) => {
       // Save book functions
       bookObj.date = selectedDate;
       const pickedMonth = getMonthFromDate(selectedDate);
-      console.log(pickedMonth);
-      console.log(newId);
       setInLS(pickedMonth, bookId);
       notification("success", "Book saved in planner successfully.");
       removeModal();
@@ -289,7 +271,6 @@ const loadNotificationBadge = () => {
 const initializeLS = () => {
   months.forEach((month) => {
     const lsMonth = getFromLS(month);
-    console.log(lsMonth);
     if (!lsMonth) {
       setInLS(month, []);
     }
