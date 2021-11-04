@@ -221,7 +221,7 @@ const constructModal = (books, bookId) => {
       setInLS(pickedMonth, bookId);
       notification("success", "Book saved in planner successfully.");
       removeModal();
-      $(this).datepicker("destroy");
+      $("#datepicker").datepicker("destroy");
       loadNotificationBadge();
     },
   });
