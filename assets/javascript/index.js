@@ -178,7 +178,7 @@ const getDateValue = () => {
 
 const checkBookInLS = (arr = [], bookId) => {
   if (arr.length > 0 && !arr) {
-    return arr.find((book) => book.bookId == bookId);
+    return arr.find((book) => book == bookId);
   }
 };
 
@@ -236,15 +236,20 @@ const constructModal = (books, bookId) => {
   });
 };
 
+const getBooksFromLS = () => {
+  const books = months.map(getFromLS).flat();
+  return books;
+};
+
 const handleAddToPlannerClick = (event) => {
   const target = $(event.target);
   if (target.is("button")) {
     // Get ID of the button
     const bookId = target.attr("id");
     // Get book ID from parent element
-    const books = getFromLS("books") || [];
+    const books = getBooksFromLS();
 
-    if (checkBookInLS(books, bookId)) {
+    if (books.includes(bookId)) {
       notification("danger", "Book already exists in planner.");
     } else {
       constructModal(books, bookId);
@@ -254,11 +259,11 @@ const handleAddToPlannerClick = (event) => {
 
 const loadNotificationBadge = () => {
   // Get how many books there are in LS
-  const numberOfBooks = getFromLS("books");
+  const books = getBooksFromLS();
   // If there are (more than 0), display notification
-  if (numberOfBooks) {
+  if (books) {
     if ($("#badge")) $("#badge").remove();
-    const spanNotification = `<span id="badge">${numberOfBooks}</span>`;
+    const spanNotification = `<span id="badge">${books.length}</span>`;
     $("#notification-box").append(spanNotification);
   }
 };
