@@ -12,6 +12,7 @@
 - [Screenshots](#screenshots)
 
 ## Deployed Link
+https://asmaamusse.github.io/readers-revival/
 
 ### Contributors
 
