@@ -11,16 +11,6 @@
 - [Plans for Improvement](#plans-for-improvement)
 - [Screenshots](#screenshots)
 
-  - [Desktop Home page](#desktop-Home-page)
-  - [Desktop Home page with recent searches](#Home-page-with-recent-searches)
-  - [Desktop My Planner page](#desktop-MyPlanner-page)
-  - [Desktop About Team page](#desktop-About-Team-page)
-
-  - [Mobile Home page](#mobile-Home-page)
-  - [Mobile My Planner page](#mobile-MyPlanner-page)
-  - [Mobile About Teams page](#mobile-About-Team-page)
-  - [Tablet](#tablet)
-
 ## Deployed Link
 
 ### Contributors
@@ -69,28 +59,44 @@ To get the required data we used the following APIs:
 
 ### Plans for Improvement
 
--
--
--
+- Include a notification feature to say there are no books within a month when viewing the planner
+
+- Include autocomplete for searching of books
+
+- Include more books within a result, when making a search
+
+- Create search feature, that allows users to search for books using ISBN (International Standard Book Number)
+
+- Create search feature, that allows users to search for books using a specific subject
+
+- Create search feature, that allows users to search for books by specific authors
 
 # Screenshots
 
 ## Desktop:
 
-#### Home page
-
 #### Home page with recent searches
+
+![Image](./assets/screenshots/home-page-with-recent-searches.jpg)
 
 #### My Planner
 
+¡[Image]()
+
 #### About Team
+
+¡[Image]()
 
 ## Mobile
 
-#### Home page
-
 #### Home page with recent searches
+
+![Image]()
 
 #### My Planner
 
+![Image]()
+
 #### About Team
+
+![Image]()
