@@ -81,26 +81,22 @@ To get the required data we used the following APIs:
 
 #### My Planner
 
-![Image](assets/images/img/myplanner-desktop.jpg)
+¡[Image]()
 
 #### About Team
 
-![Image](assets/images/img/About-team-desktop.jpg)
+¡[Image]()
 
 ## Mobile
 
 #### Home page with recent searches
 
-![Image](assets/images/img/mobile-recent-searches.png)
+![Image]()
 
 #### My Planner
 
-![Image](assets/images/img/my-planner-mobile.jpg)
+![Image]()
 
 #### About Team
 
-![Image](assets/images/img/mobile-about-teams.jpg)
-
-## Tablet
-
-![Image](assets/images/img/tablet.jpg)
+![Image]()
