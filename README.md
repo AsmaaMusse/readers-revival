@@ -1,4 +1,4 @@
-# Readers Revival
+# Readers Revival ![MIT](https://img.shields.io/static/v1?label=MIT&message=License&color=orange)
 
 ## Table of Content
 
@@ -105,3 +105,9 @@ To get the required data we used the following APIs:
 ## Tablet
 
 ![Image](assets/images/img/tablet.jpg)
+
+## Contribute
+
+To contribute or ask questions, please <a href="https://mail.google.com/mail/u/0/?tf=cm&to=asmaamusse03@gmail.com&cc&bcc&su&body&fs=1">Email</a> here
+
+
