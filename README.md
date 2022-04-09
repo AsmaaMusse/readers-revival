@@ -5,9 +5,9 @@
 - [Deployed Link](#deployed-link)
 - [Contributors](#contributors)
 - [About the Project](#about-the-project)
-  - [User Flows](#user-flows)
-  - [Technologies Used](#technologies-used)
-  - [Web APIs](#web-apis)
+- [User Flows](#user-flows)
+- [Technologies Used](#technologies-used)
+- [Web APIs](#web-apis)
 - [Plans for Improvement](#plans-for-improvement)
 - [Screenshots](#screenshots)
 
